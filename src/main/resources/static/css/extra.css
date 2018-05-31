@@ -1,0 +1,30 @@
+span.error-message {
+	color: #fe2600;
+}
+
+
+#wrapper #three-column .enter_button {
+	background: #2651a8;
+	border-radius: 6px;
+	color: rgba(255,255,255,1);
+	padding: 1em 1.5em;
+	letter-spacing: 1px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 0.8em;
+	color: rgba(255,255,255,0.80);
+}
+
+
+.error {
+	color:red;
+}
+
+div.content {
+	width: 100%;
+	text-align: center;
+}
+
+span.simple_text {
+	color: #000000;
+}
