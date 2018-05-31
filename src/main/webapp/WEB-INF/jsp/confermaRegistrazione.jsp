@@ -28,7 +28,7 @@
 						<li><a href="logout">Logout</a></li>
 					<%} %>
 					<li class="active"><a href="registrazioneAllievo">1CASO D'USO</a></li>
-					<li><a href="secondCase">2CASO D'USO</a></li>
+					<li><a href="cercaAllievo">2CASO D'USO</a></li>
 					<li><a href="thirthCase">3CASO D'USO</a></li>
 					<li><a href="fourthCase">4CASO D'USO</a></li>
 					<li><a href="fivethCase">5CASO D'USO</a></li>

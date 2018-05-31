@@ -85,21 +85,6 @@ public class GeneralController {
 	}
 
 
-
-
-
-	@RequestMapping("/secondCase")
-	public String prova2(HttpSession session, Model model) {
-
-		Responsabile r=(Responsabile) session.getAttribute("responsabileLoggato");
-		if (r==null) {
-			model.addAttribute("responsabile", new Responsabile());
-			return "login";
-		}
-		return "controlloAllievoEsistente";
-
-	}
-
 	@RequestMapping("/thirthCase")
 	public String prova3(HttpSession session, Model model) {
 

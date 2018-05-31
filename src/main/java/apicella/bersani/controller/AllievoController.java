@@ -1,5 +1,7 @@
 package apicella.bersani.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import apicella.bersani.model.Allievo;
+import apicella.bersani.model.Responsabile;
 import apicella.bersani.service.AllievoService;
 
 @Controller
@@ -31,5 +34,17 @@ public class AllievoController {
 		}
 		
 		return "controlloAllievoEsistente";
+	}
+	
+	@RequestMapping("/cercaAllievo")
+	public String prova2(HttpSession session, Model model) {
+
+		Responsabile r=(Responsabile) session.getAttribute("responsabileLoggato");
+		if (r==null) {
+			model.addAttribute("responsabile", new Responsabile());
+			return "login";
+		}
+		return "controlloAllievoEsistente";
+
 	}
 }
