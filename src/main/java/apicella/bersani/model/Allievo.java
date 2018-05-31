@@ -1,10 +1,13 @@
 package apicella.bersani.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -49,7 +52,7 @@ public class Allievo {
 	@NotNull(message="obbligatorio")
 	private String luogoNascita;
 	
-	@ManyToMany(mappedBy="allievi")
+	@ManyToMany(mappedBy="allievi",cascade= {CascadeType.MERGE, CascadeType.PERSIST}, fetch=FetchType.EAGER)
 	private List<Attivita> attivita;
 	
 	
@@ -117,6 +120,12 @@ public class Allievo {
 		this.luogoNascita = luogoNascita;
 	}
 	
+	public void addAttivita(Attivita a)
+	{
+		if(this.attivita==null)
+			this.attivita = new ArrayList<>();
+		this.attivita.add(a);
+	}
 	
 	@Override
 	public int hashCode() {

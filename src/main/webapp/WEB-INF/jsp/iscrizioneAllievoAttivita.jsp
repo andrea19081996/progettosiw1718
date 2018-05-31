@@ -5,9 +5,9 @@
 <html>
 <head>
 <link rel="stylesheet" href="/css/default.css" >
-<link rel="stylesheet" href="/resources/css/extra.css" >
+<link rel="stylesheet" href="/css/extra.css" >
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>HOME</title>
+<title>Iscrizione attivita'</title>
 </head>
 <body>
 	<!-- HEADER -->
@@ -21,7 +21,7 @@
 			<div id="menu">
 			
 				<ul>
-					<li class="active"><a href="index">Homepage</a></li>
+					<li><a href="index">Homepage</a></li>
 					<% if(session.getAttribute("responsabileLoggato") == null) { %>
 						<li><a href="login">Login</a></li>
 					<% }else { %>
@@ -29,7 +29,7 @@
 					<%} %>
 					<li><a href="registrazioneAllievo">Nuovo allievo</a></li>
 					<li><a href="cercaAllievo">Cerca allievo</a></li>
-					<li><a href="iscriviAllievo">Iscrizione attivita'</a></li>
+					<li class="active"><a href="iscriviAllievo">Iscrizione attivita'</a></li>
 					<li><a href="fourthCase">4CASO D'USO</a></li>
 					<li><a href="fivethCase">5CASO D'USO</a></li>
 				</ul>
@@ -46,9 +46,18 @@
 	<div id="wrapper">
 		<div id="three-column" class="container">
 			<div class="title">
-				<h2>Homepage</h2>
-				<span class="byline">In questa pagina verranno descritti i casi d'uso e un collegamento per il login.</span>
+				<h2>Iscrizione attività</h2>
+				<span class="byline">Seleziona una modalita'.</span>
 			</div>
+			<span class="simple_text">
+				<a href="registrazioneAllievo">Registra un nuovo allievo</a> oppure inserisci l'email di un allievo già registrato. 
+				<br>Se vuoi controllare se un allievo è già registrato <a href="cercaAllievo">clicca qui.</a> <br>
+				<form action="selezionaAllievoEsistente" method="get">
+					<span class="error">${erroreSelezionaAllievo}</span>
+					Email dell'allievo: <input type="text" name="email" />
+					<input type="submit" value="Cerca" />
+				</form>
+			</span>
 		</div>
 	</div>
 	

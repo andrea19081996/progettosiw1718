@@ -5,9 +5,9 @@
 <html>
 <head>
 <link rel="stylesheet" href="/css/default.css" >
-<link rel="stylesheet" href="/resources/css/extra.css" >
+<link rel="stylesheet" href="/css/extra.css" >
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>HOME</title>
+<title>Seleziona attivita'</title>
 </head>
 <body>
 	<!-- HEADER -->
@@ -21,7 +21,7 @@
 			<div id="menu">
 			
 				<ul>
-					<li class="active"><a href="index">Homepage</a></li>
+					<li><a href="index">Homepage</a></li>
 					<% if(session.getAttribute("responsabileLoggato") == null) { %>
 						<li><a href="login">Login</a></li>
 					<% }else { %>
@@ -29,7 +29,7 @@
 					<%} %>
 					<li><a href="registrazioneAllievo">Nuovo allievo</a></li>
 					<li><a href="cercaAllievo">Cerca allievo</a></li>
-					<li><a href="iscriviAllievo">Iscrizione attivita'</a></li>
+					<li class="active"><a href="iscriviAllievo">Iscrizione attivita'</a></li>
 					<li><a href="fourthCase">4CASO D'USO</a></li>
 					<li><a href="fivethCase">5CASO D'USO</a></li>
 				</ul>
@@ -46,9 +46,18 @@
 	<div id="wrapper">
 		<div id="three-column" class="container">
 			<div class="title">
-				<h2>Homepage</h2>
-				<span class="byline">In questa pagina verranno descritti i casi d'uso e un collegamento per il login.</span>
+				<h2>Iscrizione attività</h2>
+				<span class="byline">Seleziona un'attività.</span>
 			</div>
+			<span class="simple_text">
+				E' stato selezionato l'allievo seguente: ${allievoSelezionato } <br>
+				Seleziona l'attività a cui iscrivere l'allievo:
+				<ul>
+					<c:forEach var="a" items="${listaAttivita}">
+						<li><a href="iscrivi/${a.id}">${a.nome}</a></li>
+					</c:forEach>
+				</ul>
+			</span>
 		</div>
 	</div>
 	

@@ -19,4 +19,9 @@ public class AllievoService {
 	{
 		return repository.findByEmail(email);
 	}
+	
+	public void updateAttivita(Allievo a)
+	{
+		repository.save(a);
+	}
 }

@@ -1,11 +1,13 @@
 package apicella.bersani.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,7 +29,7 @@ public class Attivita {
 	@Temporal(TemporalType.TIME)
 	private Date dataOra;
 
-	@ManyToMany(cascade= {CascadeType.PERSIST})
+	@ManyToMany(cascade= {CascadeType.PERSIST}, fetch=FetchType.EAGER)
 	private List<Allievo> allievi;
 	
 	@ManyToOne
@@ -72,6 +74,14 @@ public class Attivita {
 
 	public void setAllievi(List<Allievo> allievi) {
 		this.allievi = allievi;
+	}
+	
+	public void addAllievo(Allievo a)
+	{
+		if(this.allievi==null)
+			this.allievi = new ArrayList<>();
+		
+		this.allievi.add(a);
 	}
 
 	@Override
