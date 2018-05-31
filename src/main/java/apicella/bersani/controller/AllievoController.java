@@ -25,7 +25,7 @@ public class AllievoController {
 		if(cercato==null)
 		{
 			System.out.println("Nessun allievo");
-			model.addAttribute("messaggioErrore", "Non � presente nessun allievo con questa email.");
+			model.addAttribute("messaggioErrore", "Non e' presente nessun allievo con questa email.");
 		}else
 		{
 			System.out.println("Allievo trovato");

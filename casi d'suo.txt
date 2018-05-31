@@ -1,0 +1,28 @@
+CASI D'USO - PROGETTO SIW 2017/2018 BERSANI APICELLA
+1) UC1: Inserimento di un nuovo allievo
+	1. L'allievo comunica al responsabile i suoi dati anagrafici.
+	2. Il responsabile inserisce nel sistema i dati
+	3. Il sistema registra i dati dell'allievo.
+
+2) UC2: Ricerca di uno studente (fatto)
+	1. Il responsabile inserisce l'email di uno studente
+	2. Il sistema comunica al resposanbile se l'allievo è già registrato al sistema
+	
+3) UC3: Iscrizione ad un'attività
+	1. Il sistema mostra le attività disponibili.
+	2. L'allievo comunica al responsabile a quale attività vuole iscriversi
+	3. Il resposnabile seleziona l'attivit desiderata
+	4. Il sistema mostra una lista degli allievi.
+	5. Il responsabile cerca e seleziona l'allievo che vuole iscriversi all'attivit�
+	6. Il sistema registra l'iscrizione.
+
+	Estensioni:
+		6a. Se è stata raggiunta la capienza massima il sistema avverte il resposabile.
+
+4) UC4: Inseriment di una nuova attività
+	1. Il responsabile inserisce i dati dell'attività.
+	2. Il sistema registra l'attività per il centro corrispondente.
+
+5) UC5: Riepilogo attività
+	1. Il responsabile selezina un'attività tra quelle del centro.
+	2. Il sistema mostra un resoconto dell'attività (informazioni) e l'elenco degli allievi che anno partecipato a quell'attività.

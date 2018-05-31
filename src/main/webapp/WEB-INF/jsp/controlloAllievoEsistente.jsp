@@ -6,7 +6,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="/css/default.css" >
-<link rel="stylesheet" href="/resources/css/extra.css" >
+<link rel="stylesheet" href="/css/extra.css" >
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Controlla Allievo</title>
 </head>
@@ -28,8 +28,8 @@
 					<% }else { %>
 						<li><a href="logout">Logout</a></li>
 					<%} %>
-					<li><a href="firstCase">1CASO D'USO</a></li>
-					<li class="active"><a href="cercaAllievo">2CASO D'USO</a></li>
+					<li><a href="registrazioneAllievo">Nuovo allievo</a></li>
+					<li class="active"><a href="cercaAllievo">Cerca allievo</a></li>
 					<li><a href="thirthCase">3CASO D'USO</a></li>
 					<li><a href="fourthCase">4CASO D'USO</a></li>
 					<li><a href="fivethCase">5CASO D'USO</a></li>
