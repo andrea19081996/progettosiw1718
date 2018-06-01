@@ -21,7 +21,7 @@
 			<div id="menu">
 			
 				<ul>
-					<li class="active"><a href="/index">Homepage</a></li>
+					<li ><a href="/index">Homepage</a></li>
 					<% if(session.getAttribute("responsabileLoggato") == null) { %>
 						<li><a href="/login">Login</a></li>
 					<% }else { %>
@@ -51,6 +51,7 @@
 			</div>
 			<span class="simple_text">
 				E' stato selezionato l'allievo seguente: ${allievoSelezionato } <br>
+				Posti dsponibili: ${postidisponibili }<br>
 				Seleziona l'attività a cui iscrivere l'allievo:
 				<ul>
 					<c:forEach var="a" items="${listaAttivita}">

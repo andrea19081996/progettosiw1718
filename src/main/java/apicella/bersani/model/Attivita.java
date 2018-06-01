@@ -26,8 +26,11 @@ public class Attivita {
 	@Column(nullable=false, unique=true)
 	private String nome;
 	
+	@Temporal(TemporalType.DATE)
+	private Date data;
+
 	@Temporal(TemporalType.TIME)
-	private Date dataOra;
+	private Date orario;
 
 	@ManyToMany(cascade= {CascadeType.PERSIST}, fetch=FetchType.EAGER)
 	private List<Allievo> allievi;
@@ -35,13 +38,28 @@ public class Attivita {
 	@ManyToOne
 	private Centro centro;
 
+	public Date getData() {
+		return data;
+	}
 
-	public Centro getCentri() {
+	public void setData(Date data) {
+		this.data = data;
+	}
+
+	public Date getOrario() {
+		return orario;
+	}
+
+	public void setOrario(Date orario) {
+		this.orario = orario;
+	}
+
+	public Centro getCentro() {
 		return centro;
 	}
 
-	public void setCentri(Centro centri) {
-		this.centro = centri;
+	public void setCentro(Centro centro) {
+		this.centro = centro;
 	}
 
 	public Long getId() {
@@ -61,11 +79,11 @@ public class Attivita {
 	}
 
 	public Date getDataOra() {
-		return dataOra;
+		return data;
 	}
 
 	public void setDataOra(Date dataOra) {
-		this.dataOra = dataOra;
+		this.data = dataOra;
 	}
 
 	public List<Allievo> getAllievi() {
@@ -90,8 +108,9 @@ public class Attivita {
 		int result = 1;
 		result = prime * result + ((allievi == null) ? 0 : allievi.hashCode());
 		result = prime * result + ((centro == null) ? 0 : centro.hashCode());
-		result = prime * result + ((dataOra == null) ? 0 : dataOra.hashCode());
+		result = prime * result + ((data == null) ? 0 : data.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((orario == null) ? 0 : orario.hashCode());
 		return result;
 	}
 
@@ -114,15 +133,20 @@ public class Attivita {
 				return false;
 		} else if (!centro.equals(other.centro))
 			return false;
-		if (dataOra == null) {
-			if (other.dataOra != null)
+		if (data == null) {
+			if (other.data != null)
 				return false;
-		} else if (!dataOra.equals(other.dataOra))
+		} else if (!data.equals(other.data))
 			return false;
 		if (nome == null) {
 			if (other.nome != null)
 				return false;
 		} else if (!nome.equals(other.nome))
+			return false;
+		if (orario == null) {
+			if (other.orario != null)
+				return false;
+		} else if (!orario.equals(other.orario))
 			return false;
 		return true;
 	}

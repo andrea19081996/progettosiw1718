@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +28,7 @@ public class IscrizioneAttivitaController {
 	@Autowired
 	AttivitaService attivitaService;
 
+	// Controller iniziale per uc3. Controlla se il responsaible è loggato e mostra la view iniziale
 	@RequestMapping("/iscriviAllievo")
 	public String mostraIscrizioneAllievo(HttpSession session, Model model)
 	{
@@ -39,6 +41,7 @@ public class IscrizioneAttivitaController {
 		return "iscrizioneAllievoAttivita";
 	}
 
+	// Se il resposnabile sceglie di usare un allievo già esistente, fornisce l'email e l'allievo viene recuperato dal database.
 	@RequestMapping("selezionaAllievoEsistente")
 	public String selezionaAllievoEsistente(@RequestParam("email") String email, Model model,HttpSession session)
 	{
@@ -50,6 +53,7 @@ public class IscrizioneAttivitaController {
 		}
 
 		// Se trovo l'allievo seleziono tutte le attività del centro.
+		// Prendo il resposanbile dalla sessione
 		Responsabile r=(Responsabile) session.getAttribute("responsabileLoggato");
 		if (r==null) {
 			model.addAttribute("responsabile", new Responsabile());
@@ -57,16 +61,31 @@ public class IscrizioneAttivitaController {
 		}
 
 		Centro c = r.getCentro();
-		List<Attivita> attivita = attivitaService.findByCentro(c);
+		// Prendo tutte le attività odierne e controllo la capienza del centro.
+		List<Attivita> attivita = attivitaService.getAttivitaOdierne(c);
+		int postiOccupati = 0;
+		for(Attivita att : attivita)
+			postiOccupati = postiOccupati + att.getAllievi().size();
+
+		if(postiOccupati>=c.getNumMax())
+		{
+			// Se ho raggiunto la capienza masssima allora non posso proseguire
+			model.addAttribute("messaggioErrore", "Non è possibile eseguire un'iscrizione in quanto è stata raggiunta la capienza massima per qesto centro.");
+			return "errore";
+		}
+		model.addAttribute("postiDisponibili", c.getNumMax()-postiOccupati);
 		model.addAttribute("listaAttivita",attivita);
 		session.setAttribute("allievoSelezionato", trovato);
 		return "selezionaAttivita";
 	}
 
+	// Iscrive un allievo ad un'attività identificata da "id"
 	@RequestMapping("iscrivi/{id}")
-	public String iscrivi(@PathVariable Long id, HttpSession session) 
+	public String iscrivi(@PathVariable Long id, HttpSession session, Model model) 
 	{
 		Allievo allievo = (Allievo) session.getAttribute("allievoSelezionato");
+		// Tolgo l'allievo selezionato dalla sessione
+		session.removeAttribute("allievoSelezionato");
 		Attivita attivita = attivitaService.findById(id);
 		if(allievo!=null && attivita!=null)
 		{
@@ -78,14 +97,22 @@ public class IscrizioneAttivitaController {
 			System.out.println("Iscrivi: ho aggiunto l'allievo all'attivita");
 			try {
 				allievoService.updateAttivita(allievo);
+			}catch(InvalidDataAccessApiUsageException e)
+			{
+				// L'allievo è gia registrato
+				e.printStackTrace();
+				model.addAttribute("messaggioErrore", "L'allievo e' gia' regstrato a questa attività.");
+				return "errore";
 			}catch(Exception e)
 			{
+				// Altro errore
+				e.printStackTrace();
 				return "errore";
 			}
-			// Tolgo l'allievo selezionato dalla sessione
-			session.removeAttribute("allievoSelezionato");
+			
 		}else
 		{
+			model.addAttribute("messaggioErrore", "Non è possibile eseguire l'iscrizione a questa attività.");
 			return "errore";
 		}
 

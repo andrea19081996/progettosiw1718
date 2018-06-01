@@ -24,7 +24,7 @@
 			<div id="menu">
 			
 				<ul>
-					<li class="active"><a href="/index">Homepage</a></li>
+					<li><a href="/index">Homepage</a></li>
 					<% if(session.getAttribute("responsabileLoggato") == null) { %>
 						<li><a href="/login">Login</a></li>
 					<% }else { %>

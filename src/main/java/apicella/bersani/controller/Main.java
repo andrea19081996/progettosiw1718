@@ -25,12 +25,7 @@ public class Main {
 		
 		return "index";
 	}
-	
-	@RequestMapping("/login")
-	protected String showLoginPage(Model model) {
-		model.addAttribute("responsabile", new Responsabile());
-		return "login";
-	}
+
 	
 	@RequestMapping("/nuova_pagina")
 	public String nuovaPagina(Model model) {

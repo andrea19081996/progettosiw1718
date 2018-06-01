@@ -48,6 +48,8 @@
 			<div class="title">
 				<h2 class="error">SI E' VERIFICATO UN ERRORE.</h2>
 				<span class="byline">Si è verificato un errore nel sistema. <a href="/index">Clicca qui</a> per tornare alla Homepage.</span>
+				<br>
+				<span class="byline">${messaggioErrore }</span>
 			</div>
 		</div>
 	</div>

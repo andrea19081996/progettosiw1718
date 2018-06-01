@@ -1,5 +1,7 @@
 package apicella.bersani.service;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,6 +24,11 @@ public class AttivitaService {
 	public List<Attivita> findByCentro(Centro centro)
 	{
 		return repository.findByCentro(centro);
+	}
+	
+	public List<Attivita> getAttivitaOdierne(Centro centro)
+	{
+		return repository.findByCentroAndData(centro, Calendar.getInstance().getTime());
 	}
 	
 	public Attivita findById(Long id) 

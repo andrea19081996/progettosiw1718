@@ -18,15 +18,17 @@ public class AllievoController {
 	@Autowired
 	AllievoService repository;
 	
+	// Controlla se un'allievo è gia presente nel database
 	@RequestMapping("controllaAllievo")
 	public String controllaAllievo(@RequestParam("email") String email, Model model) {
 
 		Allievo cercato = repository.findByEmail(email);
+		// Se non ho trovato l'allievo
 		if(cercato==null)
 		{
 			System.out.println("Nessun allievo");
 			model.addAttribute("messaggioErrore", "Non e' presente nessun allievo con questa email.");
-		}else
+		}else	
 		{
 			System.out.println("Allievo trovato");
 			model.addAttribute("messaggio", "E' stato trovato il seguente allievo gi� registrato.");
@@ -36,6 +38,7 @@ public class AllievoController {
 		return "controlloAllievoEsistente";
 	}
 	
+	// Controller iniziale per uc2
 	@RequestMapping("/cercaAllievo")
 	public String prova2(HttpSession session, Model model) {
 

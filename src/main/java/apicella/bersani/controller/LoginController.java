@@ -22,6 +22,12 @@ public class LoginController {
 	@Autowired
 	ResponsabileService responsabileService;
 	
+	@RequestMapping("/login")
+	protected String showLoginPage(Model model) {
+		model.addAttribute("responsabile", new Responsabile());
+		return "login";
+	}
+	
 	@RequestMapping("/makeLogin")
 	public String processLogin(HttpSession session, @ModelAttribute("responsabile") Responsabile responsabile, Model model)
 	{
@@ -45,7 +51,7 @@ public class LoginController {
 		
 	}
 	
-	public Responsabile makeLogin(Responsabile responsabileDaLoggare) {
+	private Responsabile makeLogin(Responsabile responsabileDaLoggare) {
 		System.out.println("Inizio makeLogin");
 		Responsabile result;
 		
