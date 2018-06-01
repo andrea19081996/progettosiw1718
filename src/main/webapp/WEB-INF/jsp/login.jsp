@@ -22,17 +22,17 @@
 			<div id="menu">
 			
 				<ul>
-					<li><a href="index">Homepage</a></li>
+					<li class="active"><a href="/index">Homepage</a></li>
 					<% if(session.getAttribute("responsabileLoggato") == null) { %>
-						<li class="active"><a href="login">Login</a></li>
+						<li class="active"><a href="/login">Login</a></li>
 					<% }else { %>
-						<li><a href="logout">Logout</a></li>
+						<li><a href="/logout">Logout</a></li>
 					<%} %>
-					<li><a href="registrazioneAllievo">Nuovo allievo</a></li>
-					<li><a href="cercaAllievo">Cerca allievo</a></li>
-					<li><a href="thirthCase">3CASO D'USO</a></li>
-					<li><a href="fourthCase">4CASO D'USO</a></li>
-					<li><a href="fivethCase">5CASO D'USO</a></li>
+					<li><a href="/registrazioneAllievo">Nuovo allievo</a></li>
+					<li><a href="/cercaAllievo">Cerca allievo</a></li>
+					<li><a href="/iscriviAllievo">Iscrizione attivita'</a></li>
+					<li><a href="/fourthCase">4CASO D'USO</a></li>
+					<li><a href="/fivethCase">5CASO D'USO</a></li>
 				</ul>
 			</div>
 		</div>

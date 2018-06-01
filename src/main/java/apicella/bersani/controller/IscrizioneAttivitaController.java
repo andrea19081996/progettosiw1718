@@ -20,13 +20,13 @@ import apicella.bersani.service.AttivitaService;
 
 @Controller
 public class IscrizioneAttivitaController {
-	
+
 	@Autowired
 	AllievoService allievoService;
-	
+
 	@Autowired
 	AttivitaService attivitaService;
-	
+
 	@RequestMapping("/iscriviAllievo")
 	public String mostraIscrizioneAllievo(HttpSession session, Model model)
 	{
@@ -38,7 +38,7 @@ public class IscrizioneAttivitaController {
 		}
 		return "iscrizioneAllievoAttivita";
 	}
-	
+
 	@RequestMapping("selezionaAllievoEsistente")
 	public String selezionaAllievoEsistente(@RequestParam("email") String email, Model model,HttpSession session)
 	{
@@ -48,21 +48,21 @@ public class IscrizioneAttivitaController {
 			model.addAttribute("erroreSelezionaAllievo", "Nessun allievo trovato con questa email.");
 			return "iscrizioneAllievoAttivita";
 		}
-		
+
 		// Se trovo l'allievo seleziono tutte le attività del centro.
 		Responsabile r=(Responsabile) session.getAttribute("responsabileLoggato");
 		if (r==null) {
 			model.addAttribute("responsabile", new Responsabile());
 			return "login";
 		}
-		
+
 		Centro c = r.getCentro();
 		List<Attivita> attivita = attivitaService.findByCentro(c);
 		model.addAttribute("listaAttivita",attivita);
 		session.setAttribute("allievoSelezionato", trovato);
 		return "selezionaAttivita";
 	}
-	
+
 	@RequestMapping("iscrivi/{id}")
 	public String iscrivi(@PathVariable Long id, HttpSession session) 
 	{
@@ -76,12 +76,19 @@ public class IscrizioneAttivitaController {
 			System.out.println("Iscrivi: ho aggiunto l'attivita all'allievo");
 			attivita.addAllievo(allievo);
 			System.out.println("Iscrivi: ho aggiunto l'allievo all'attivita");
-			allievoService.updateAttivita(allievo);
+			try {
+				allievoService.updateAttivita(allievo);
+			}catch(Exception e)
+			{
+				return "errore";
+			}
+			// Tolgo l'allievo selezionato dalla sessione
+			session.removeAttribute("allievoSelezionato");
 		}else
 		{
 			return "errore";
 		}
-		
+
 		return "confermaIscrizione";
 	}
 

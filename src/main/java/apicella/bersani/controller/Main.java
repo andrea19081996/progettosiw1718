@@ -37,5 +37,10 @@ public class Main {
 		return "nuova_pagina";
 	}
 	
+	@RequestMapping("/errore")
+	public String mostraPaginaErrore() {
+		return "errore";
+	}
+	
 
 }
