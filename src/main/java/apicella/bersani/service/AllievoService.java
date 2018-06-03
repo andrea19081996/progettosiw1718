@@ -1,5 +1,7 @@
 package apicella.bersani.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +15,11 @@ import apicella.bersani.repository.AllievoRepository;
 public class AllievoService {
 
 	@Autowired
-	AllievoRepository repository;
+	private AllievoRepository repository;
+	
+	public Allievo save(Allievo allievo) {
+		return this.repository.save(allievo);
+	}
 	
 	public Allievo findByEmail(String email)
 	{
@@ -24,4 +30,15 @@ public class AllievoService {
 	{
 		repository.save(a);
 	}
+	
+	
+	public boolean alreadyExists(Allievo allievo) {
+		Allievo allievi = this.repository.findByEmail(allievo.getEmail());
+		if (allievi!=null)
+			return true;
+		else 
+			return false;
+	}
+	
+	
 }

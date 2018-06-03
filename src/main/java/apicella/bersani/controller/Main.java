@@ -27,11 +27,6 @@ public class Main {
 	}
 
 	
-	@RequestMapping("/nuova_pagina")
-	public String nuovaPagina(Model model) {
-		return "nuova_pagina";
-	}
-	
 	@RequestMapping("/errore")
 	public String mostraPaginaErrore() {
 		return "errore";

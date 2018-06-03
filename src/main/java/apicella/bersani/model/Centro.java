@@ -16,6 +16,8 @@ import javax.persistence.OneToMany;
 @NamedQuery(name = "findAllCentri", query = "FROM Centro c")
 public class Centro {
 
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;

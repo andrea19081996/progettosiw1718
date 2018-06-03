@@ -25,6 +25,8 @@ import javax.validation.constraints.Pattern;
 @NamedQuery(name = "findAllAllievi", query = "FROM Allievo a")
 public class Allievo {
 	
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;

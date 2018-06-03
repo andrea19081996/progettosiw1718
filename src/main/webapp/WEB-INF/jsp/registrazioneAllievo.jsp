@@ -60,37 +60,33 @@
 			<form:form action="makeRegistration" modelAttribute="allievo" class="">
 				* I campi contrassegnati da questo simbolo sono obbligatori.
 				Nome*: <form:input path="nome" />
-				<form:errors path="nome" cssClass="error" />
-				<span class="error">${name_error}</span>
+				<span class"error"> ${errors.nome} </span>
 				
 				Cognome*: <form:input path="cognome" />
-				<form:errors path="cognome" cssClass="error" />
-				<span class="error">${cognome_error}</span>
+				<span class"error"> ${errors.cognome} </span>
 				
 				<br><br>
 				
 				Email*: <form:input path="email" />
-				<form:errors path="email" cssClass="error" />
-				<span class="error">${email_error}</span>
+				<span class"error"> ${errors.email} </span>
 				
 				Telefono*: <form:input path="telefono" />
-				<form:errors path="telefono" cssClass="error" />
-				<span class="error">${telefono_error}</span>
+				<span class"error"> ${errors.telefono} </span>
 				
 				<br><br>
 				
 				Data di nascita* (MM-GG-AAAA): <form:input path="dataNascita" />
-	 			<form:errors path="dataNascita" cssClass="error" />
-				<span class="error">${dataNascita_error}</span>
+				<span class"error"> ${errors.dataNascita} </span>
 				
 				Luogo di Nascita*: <form:input path="luogoNascita" />
-				<form:errors path="luogoNascita" cssClass="error" />
-				<span class="error">${luogoNascita_error}</span>
-				
+				<span class"error"> ${errors.luogoNascita} </span>
+								
 				<br><br>
 				
 				<!-- Modificare css come pulsante blu -->
+				<span class"error"> ${esiste} </span>
 				
+				<br><br>
 				<!--  per far venire come pulsante in alto agg js per mandare comando di login -->
 				<input type="submit" value="Registra" class=""/>
 			</form:form>	

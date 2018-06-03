@@ -12,19 +12,19 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 
 import apicella.bersani.model.Attivita;
 import apicella.bersani.model.Centro;
-import apicella.bersani.model.Customer;
 import apicella.bersani.model.Responsabile;
-import apicella.bersani.service.CustomerService;
+import apicella.bersani.service.AllievoService;
 import apicella.bersani.service.ResponsabileService;
 
 @SpringBootApplication
 public class ProgettoSiw1718Application extends SpringBootServletInitializer {
 
-	@Autowired
-	CustomerService customerService;
 	
 	@Autowired
 	ResponsabileService responsabileService;
+	
+	@Autowired
+	private AllievoService allievoService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProgettoSiw1718Application.class, args);
