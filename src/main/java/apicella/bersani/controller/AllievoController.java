@@ -85,21 +85,19 @@ public class AllievoController {
 		
 		this.validator.validate(allievo, theBindingResult);
 		
-		if(theBindingResult.hasErrors())
-			return "registrazioneAllievo";
-		
-        if (this.repository.alreadyExists(allievo)) {
-            model.addAttribute("esiste", "L'allievo è già presente nel database");
-            return "registrazioneAllievo";
-        } 	else {
-	        	if (!theBindingResult.hasErrors()) {
-	            this.repository.save(allievo);
-	            model.addAttribute("allievo",allievo);
-	            return "confermaRegistrazione";
-	        }
+		if(theBindingResult.hasErrors()) {
+			return "registrazioneAllievo"; 
+		} else {
+	        if (this.repository.alreadyExists(allievo)) {
+	            model.addAttribute("esiste", "L'allievo è già presente nel database");
+	            return "registrazioneAllievo";
+	        } 	else {
+		            this.repository.save(allievo);
+		            model.addAttribute("allievo",allievo);
+		            return "confermaRegistrazione";
+		        }
         }
-        	
-    	return "registrazioneAllievo"; 
+  
 
 		/*System.out.println("Binding resul " + theBindingResult);
 		System.out.println("\n\n\n");

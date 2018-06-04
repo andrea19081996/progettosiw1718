@@ -52,34 +52,41 @@
 		<div id="wrapper">
 		<div id="three-column" class="container">
 			<div class="title">
-				<h2>Login</h2>
-				<span class="byline">In questa pagina verranno descritti i casi d'uso e un collegamento per il login.</span>
+				<h2>Inserisci i dati del nuovo allievo</h2>
+				<span class="byline">Nello spazio sottostante scrivi i dati dello studente</span>
 			</div>
 			<br>
 			
 			<form:form action="makeRegistration" modelAttribute="allievo" class="">
 				* I campi contrassegnati da questo simbolo sono obbligatori.
+				<br><br>
 				Nome*: <form:input path="nome" />
-				<span class"error"> ${errors.nome} </span>
+				<span class="error"> <form:errors path="nome" /> </span>
+				
+				<br><br>
 				
 				Cognome*: <form:input path="cognome" />
-				<span class"error"> ${errors.cognome} </span>
+				<span class="error"> <form:errors path="cognome" /> </span>
 				
 				<br><br>
 				
 				Email*: <form:input path="email" />
-				<span class"error"> ${errors.email} </span>
-				
-				Telefono*: <form:input path="telefono" />
-				<span class"error"> ${errors.telefono} </span>
+				<span class="error"> <form:errors path="email" /> </span>
 				
 				<br><br>
 				
-				Data di nascita* (MM-GG-AAAA): <form:input path="dataNascita" />
-				<span class"error"> ${errors.dataNascita} </span>
+				Telefono*: <form:input path="telefono" />
+				<span class="error"> <form:errors path="telefono" /> </span>
+				
+				<br><br>
+				
+				Data di nascita* (GG-MM-AAAA): <form:input path="dataNascita" />
+				<span class="error"> <form:errors path="dataNascita" /> </span>
+				
+				<br><br>
 				
 				Luogo di Nascita*: <form:input path="luogoNascita" />
-				<span class"error"> ${errors.luogoNascita} </span>
+				<span class="error"> <form:errors path="luogoNascita" /> </span>
 								
 				<br><br>
 				
