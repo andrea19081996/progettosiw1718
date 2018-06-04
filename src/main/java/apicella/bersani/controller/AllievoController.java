@@ -43,7 +43,7 @@ public class AllievoController {
 		}else	
 		{
 			System.out.println("Allievo trovato");
-			model.addAttribute("messaggio", "E' stato trovato il seguente allievo gi� registrato.");
+			model.addAttribute("messaggio", "E' stato trovato il seguente allievo gia' registrato.");
 			model.addAttribute("allievoCercato", cercato.toHtmlString());
 		}
 		
@@ -84,6 +84,9 @@ public class AllievoController {
 
 		
 		this.validator.validate(allievo, theBindingResult);
+		
+		if(theBindingResult.hasErrors())
+			return "registrazioneAllievo";
 		
         if (this.repository.alreadyExists(allievo)) {
             model.addAttribute("esiste", "L'allievo è già presente nel database");

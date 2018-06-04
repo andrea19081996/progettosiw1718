@@ -18,6 +18,8 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 
 
 
@@ -47,6 +49,7 @@ public class Allievo {
 	@Pattern(regexp="^[0-9]{10}", message="inserire 10 numeri")
 	private String telefono;
 	
+	@DateTimeFormat(pattern="dd-MM-yyyy")
 	@NotNull(message="obbligatorio")
 	@Temporal(TemporalType.DATE)
 	private Date dataNascita;
