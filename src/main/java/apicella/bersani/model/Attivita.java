@@ -16,6 +16,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class Attivita {
 	
@@ -28,9 +30,11 @@ public class Attivita {
 	@Column(nullable=false, unique=true)
 	private String nome;
 	
+	@DateTimeFormat(pattern="dd-MM-yyyy")
 	@Temporal(TemporalType.DATE)
 	private Date data;
 
+	@DateTimeFormat(pattern="hh:mm")
 	@Temporal(TemporalType.TIME)
 	private Date orario;
 
@@ -80,13 +84,6 @@ public class Attivita {
 		this.nome = nome;
 	}
 
-	public Date getDataOra() {
-		return data;
-	}
-
-	public void setDataOra(Date dataOra) {
-		this.data = dataOra;
-	}
 
 	public List<Allievo> getAllievi() {
 		return allievi;

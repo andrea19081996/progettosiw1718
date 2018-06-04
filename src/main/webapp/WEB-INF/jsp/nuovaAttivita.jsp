@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -21,16 +22,16 @@
 			<div id="menu">
 			
 				<ul>
-					<li><a href="/index">Homepage</a></li>
+					<li ><a href="/index">Homepage</a></li>
 					<% if(session.getAttribute("responsabileLoggato") == null) { %>
 						<li><a href="/login">Login</a></li>
 					<% }else { %>
 						<li><a href="/logout">Logout</a></li>
 					<%} %>
-					<li class="active"><a href="/registrazioneAllievo">Nuovo allievo</a></li>
+					<li><a href="/registrazioneAllievo">Nuovo allievo</a></li>
 					<li><a href="/cercaAllievo">Cerca allievo</a></li>
 					<li><a href="/iscriviAllievo">Iscrizione attivita'</a></li>
-					<li><a href="/nuovaAttivita">Nuova attivita'</a></li>
+					<li class="active"><a href="/nuovaAttivita">Nuova attivita'</a></li>
 					<li><a href="/fivethCase">5CASO D'USO</a></li>
 				</ul>
 			</div>
@@ -46,16 +47,27 @@
 	<div id="wrapper">
 		<div id="three-column" class="container">
 			<div class="title">
-				<h2>Registrazione completata</h2>
-				<span class="byline">Complimenti la registrazione è stata effettuata con successo.</span>
-				<ul>
-					<li>Nome: ${allievo.nome}</li>
-					<li>Cognome: ${allievo.cognome}</li>
-					<li>Email: ${allievo.email}</li>
-					<li>Telefono: ${allievo.telefono}</li>
-					<li>Data di Nascita: ${allievo.dataNascita}</li>
-					<li>Luogo di Nascita: ${allievo.luogoNascita}</li>
-				</ul>
+				<h2>Nuova attivita'</h2>
+				<span class="byline">Inserisci una nuova attivita'.</span>
+				<br><br>
+				<form:form action="aggiungiAttivita" modelAttribute="attivita" class="login-form">
+				
+				Nome: <form:input path="nome" />
+				
+				<br><br>
+				
+				Data (GG-MM-AAAA): <form:input path="data" />
+				
+				<br><br>
+				Orario: <form:input path="orario" />
+				
+				<br><br>
+				
+				<!-- Modificare css come pulsante blu -->
+				
+				<!--  per far venire come pulsante in alto agg js per mandare comando di login -->
+				<input type="submit" value="Aggiungi" class="enter_button"/>
+			</form:form>	
 			</div>
 		</div>
 	</div>

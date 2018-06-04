@@ -40,5 +40,10 @@ public class AttivitaService {
 			return null;
 	}
 	
+	public void save(Attivita a)
+	{
+		repository.save(a);
+	}
+	
 	
 }

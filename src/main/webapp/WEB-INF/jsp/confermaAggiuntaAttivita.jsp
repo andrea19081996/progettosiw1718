@@ -21,16 +21,16 @@
 			<div id="menu">
 			
 				<ul>
-					<li><a href="/index">Homepage</a></li>
+					<li ><a href="/index">Homepage</a></li>
 					<% if(session.getAttribute("responsabileLoggato") == null) { %>
 						<li><a href="/login">Login</a></li>
 					<% }else { %>
 						<li><a href="/logout">Logout</a></li>
 					<%} %>
-					<li class="active"><a href="/registrazioneAllievo">Nuovo allievo</a></li>
+					<li><a href="/registrazioneAllievo">Nuovo allievo</a></li>
 					<li><a href="/cercaAllievo">Cerca allievo</a></li>
 					<li><a href="/iscriviAllievo">Iscrizione attivita'</a></li>
-					<li><a href="/nuovaAttivita">Nuova attivita'</a></li>
+					<li class="active"><a href="/nuovaAttivita">Nuova attivita'</a></li>
 					<li><a href="/fivethCase">5CASO D'USO</a></li>
 				</ul>
 			</div>
@@ -46,15 +46,12 @@
 	<div id="wrapper">
 		<div id="three-column" class="container">
 			<div class="title">
-				<h2>Registrazione completata</h2>
-				<span class="byline">Complimenti la registrazione è stata effettuata con successo.</span>
+				<h2>Attivita' aggiunta con successo</h2>
+			
 				<ul>
-					<li>Nome: ${allievo.nome}</li>
-					<li>Cognome: ${allievo.cognome}</li>
-					<li>Email: ${allievo.email}</li>
-					<li>Telefono: ${allievo.telefono}</li>
-					<li>Data di Nascita: ${allievo.dataNascita}</li>
-					<li>Luogo di Nascita: ${allievo.luogoNascita}</li>
+					<li>Nome: ${attivita.nome}</li>
+					<li>Data: ${attivita.data}</li>
+					<li>Orario: ${attivita.orario}</li>
 				</ul>
 			</div>
 		</div>

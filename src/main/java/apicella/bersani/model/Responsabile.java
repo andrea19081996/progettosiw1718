@@ -29,6 +29,14 @@ public class Responsabile {
 	@OneToOne(fetch=FetchType.EAGER, cascade= {CascadeType.PERSIST})
 	private Centro centro;
 	
+	private String ruolo;
+	
+	public String getRuolo() {
+		return ruolo;
+	}
+	public void setRuolo(String ruolo) {
+		this.ruolo = ruolo;
+	}
 	public Centro getCentro() {
 		return centro;
 	}
