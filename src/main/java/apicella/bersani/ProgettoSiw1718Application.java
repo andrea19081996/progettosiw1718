@@ -37,7 +37,8 @@ public class ProgettoSiw1718Application extends SpringBootServletInitializer {
 
 	@PostConstruct
 	public void init()
-	{/*
+	{	
+		/*
 		Customer c = new Customer();
 		c.setNome("Davide");
 		

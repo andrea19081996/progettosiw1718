@@ -33,28 +33,28 @@ public class Allievo {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@NotNull(message="obbligatorio")
+//	@NotNull(message="obbligatorio")
 	@Column(nullable=false)
 	private String nome;
 	
-	@NotNull(message="obbligatorio")
+//	@NotNull(message="obbligatorio")
 	@Column(nullable=false)
 	private String cognome;
 	
-	@NotNull(message="obbligatorio")
+//	@NotNull(message="obbligatorio")
 	@Column(nullable=false, unique=true)
 	private String email;
 	
-	@NotNull(message="obbligatorio")
-	@Pattern(regexp="^[0-9]{10}", message="inserire 10 numeri")
+//	@NotNull(message="obbligatorio")
+//	@Pattern(regexp="^[0-9]{10}", message="inserire 10 numeri")
 	private String telefono;
 	
 	@DateTimeFormat(pattern="dd-MM-yyyy")
-	@NotNull(message="obbligatorio")
+//	@NotNull(message="obbligatorio")
 	@Temporal(TemporalType.DATE)
 	private Date dataNascita;
 	
-	@NotNull(message="obbligatorio")
+//	@NotNull(message="obbligatorio")
 	private String luogoNascita;
 	
 	@ManyToMany(mappedBy="allievi",cascade= {CascadeType.MERGE, CascadeType.PERSIST}, fetch=FetchType.EAGER)
