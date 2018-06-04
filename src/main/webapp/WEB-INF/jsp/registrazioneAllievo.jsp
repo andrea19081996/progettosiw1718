@@ -80,7 +80,7 @@
 				
 				<br><br>
 				
-				Data di nascita* (MM-GG-AAAA): <form:input path="dataNascita" />
+				Data di nascita* (GG-MM-AAAA): <form:input path="dataNascita" />
 				<span class="error"> <form:errors path="dataNascita" /> </span>
 				
 				<br><br>
