@@ -52,14 +52,14 @@
 				<br><br>
 				<form:form action="aggiungiAttivita" modelAttribute="attivita" class="login-form">
 				
-				Nome: <form:input path="nome" />
+				Nome: <form:input path="nome" /><span class="error"> <form:errors path="nome" /> </span>
 				
 				<br><br>
 				
-				Data (GG-MM-AAAA): <form:input path="data" />
+				Data (GG-MM-AAAA): <form:input path="data" /><span class="error"> <form:errors path="data" /> </span>
 				
 				<br><br>
-				Orario: <form:input path="orario" />
+				Orario: <form:input path="orario" /><span class="error"> <form:errors path="orario" /> </span>
 				
 				<br><br>
 				

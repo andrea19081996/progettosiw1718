@@ -37,10 +37,7 @@ public class ProgettoSiw1718Application extends SpringBootServletInitializer {
 
 	@PostConstruct
 	public void init()
-	{	
-		/*
-		Customer c = new Customer();
-		c.setNome("Davide");
+	{	/*
 		
 		Responsabile r = new Responsabile();
 		r.setEmail("prova@prova.it");
@@ -54,7 +51,6 @@ public class ProgettoSiw1718Application extends SpringBootServletInitializer {
 		centro.setTelefono("123456789");
 		r.setCentro(centro);
 
-		customerService.save(c);
 		responsabileService.save(r);
 */
 	}

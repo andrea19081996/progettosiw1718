@@ -2,3 +2,4 @@ DA FARE:
 	- Decidere dove posizinare il titolo della pagina (vedi differenze tra pagine di uc1 e uc2)
 	- Aggiornare la home
 	- Esternalizzare metodo (statico) per controllo del responsabile loggato
+	- Gestione eccezioni nelle form

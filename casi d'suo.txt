@@ -13,7 +13,7 @@ CASI D'USO - PROGETTO SIW 2017/2018 BERSANI APICELLA
 	2. L'allievo comunica al responsabile a quale attività vuole iscriversi
 	3. Il resposnabile seleziona l'attivit desiderata
 	4. Il sistema mostra una lista degli allievi.
-	5. Il responsabile cerca e seleziona l'allievo che vuole iscriversi all'attivit�
+	5. Il responsabile cerca e seleziona l'allievo che vuole iscriversi all'attivit�
 	6. Il sistema registra l'iscrizione.
 
 	Estensioni:
@@ -25,4 +25,4 @@ CASI D'USO - PROGETTO SIW 2017/2018 BERSANI APICELLA
 
 5) UC5: Riepilogo attività
 	1. Il responsabile selezina un'attività tra quelle del centro.
-	2. Il sistema mostra un resoconto dell'attività (informazioni) e l'elenco degli allievi che anno partecipato a quell'attività.
+	2. Il sistema mostra un resoconto dell'attività (informazioni) e l'elenco degli allievi che hanno partecipato a quell'attività.
