@@ -20,9 +20,6 @@ import javax.validation.constraints.Pattern;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-
-
-
 @Entity
 @NamedQuery(name = "findAllAllievi", query = "FROM Allievo a")
 public class Allievo {
@@ -49,7 +46,7 @@ public class Allievo {
 //	@Pattern(regexp="^[0-9]{10}", message="inserire 10 numeri")
 	private String telefono;
 	
-	@DateTimeFormat(pattern="dd-MM-yyyy")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 //	@NotNull(message="obbligatorio")
 	@Temporal(TemporalType.DATE)
 	private Date dataNascita;

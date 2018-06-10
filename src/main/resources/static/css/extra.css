@@ -31,3 +31,18 @@ div.content {
 span.simple_text {
 	color: #000000;
 }
+
+form.logout {
+	display:inline-block;
+	float: right;
+}
+
+input.logout {
+	background: transparent;
+	border: 0px;
+	font-family: 'Didact Gothic', sans-serif;
+	font-size: 12pt;
+	font-weight: 200;
+	color: rgba(255,255,255,0.80);
+	cursor:pointer;
+}

@@ -24,7 +24,7 @@ public class AttivitaValidator implements Validator{
 		System.out.println("Controllo attivita");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nome", "richiesto");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "data", "richiesto");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "orario", "richiesto");
+        //ValidationUtils.rejectIfEmptyOrWhitespace(errors, "orario", "richiesto");
 
         Attivita a = (Attivita) arg0;
         if(errors.hasFieldErrors("data"))

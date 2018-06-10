@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 
-import org.apache.commons.codec.digest.DigestUtils;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
 @NamedQuery(name = "findAllResponsabile", query = "FROM Responsabile r")
@@ -55,7 +55,8 @@ public class Responsabile {
 		return password;
 	}
 	public void setPassword(String password) {
-		this.password = DigestUtils.sha1Hex(password);
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		this.password = encoder.encode(password);
 	}
 	public Long getId() {
 		return id;

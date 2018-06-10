@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+ <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,20 +14,20 @@
 	<!-- HEADER -->
 	<div id="header-wrapper">
 		<div id="header" class="container">
-			<% if(session.getAttribute("responsabileLoggato") != null) { %>
+			<sec:authorize access="isAuthenticated()"> 
 				<div id="logo">
-						<h1>Benvenuto <a href="#">${responsabileLoggato.email }</a></h1>
+						<h1>Benvenuto <a href="#"><sec:authentication property="principal.username" /></a></h1>
 					</div>
-			<% } %>
+			</sec:authorize>
 			<div id="menu">
 			
 				<ul>
 					<li><a href="/index">Homepage</a></li>
-					<% if(session.getAttribute("responsabileLoggato") == null) { %>
-						<li><a href="/login">Login</a></li>
-					<% }else { %>
-						<li><a href="/logout">Logout</a></li>
-					<%} %>
+					<sec:authorize access="isAuthenticated()"> 
+						<form action="/logout" method="post" class="logout">
+						  <input type="submit" value="LOGOUT" class="logout"/>
+						</form>
+					</sec:authorize>
 					<li><a href="/registrazioneAllievo">Nuovo allievo</a></li>
 					<li><a href="/cercaAllievo">Cerca allievo</a></li>
 					<li class="active"><a href="/iscriviAllievo">Iscrizione attivita'</a></li>

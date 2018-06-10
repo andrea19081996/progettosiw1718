@@ -6,6 +6,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.InvalidDataAccessApiUsageException;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +20,7 @@ import apicella.bersani.model.Centro;
 import apicella.bersani.model.Responsabile;
 import apicella.bersani.service.AllievoService;
 import apicella.bersani.service.AttivitaService;
+import apicella.bersani.service.ResponsabileService;
 
 @Controller
 public class IscrizioneAttivitaController {
@@ -27,17 +30,14 @@ public class IscrizioneAttivitaController {
 
 	@Autowired
 	AttivitaService attivitaService;
+	
+	@Autowired 
+	ResponsabileService responsabileService;
 
 	// Controller iniziale per uc3. Controlla se il responsaible è loggato e mostra la view iniziale
 	@RequestMapping("/iscriviAllievo")
 	public String mostraIscrizioneAllievo(HttpSession session, Model model)
 	{
-		Responsabile r=(Responsabile) session.getAttribute("responsabileLoggato");
-
-		if (r==null) {
-			model.addAttribute("responsabile", new Responsabile());
-			return "login";
-		}
 		return "iscrizioneAllievoAttivita";
 	}
 
@@ -54,11 +54,8 @@ public class IscrizioneAttivitaController {
 
 		// Se trovo l'allievo seleziono tutte le attività del centro.
 		// Prendo il resposanbile dalla sessione
-		Responsabile r=(Responsabile) session.getAttribute("responsabileLoggato");
-		if (r==null) {
-			model.addAttribute("responsabile", new Responsabile());
-			return "login";
-		}
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		Responsabile r = responsabileService.findByEmail(user.getUsername());
 
 		Centro c = r.getCentro();
 		// Prendo tutte le attività odierne e controllo la capienza del centro.

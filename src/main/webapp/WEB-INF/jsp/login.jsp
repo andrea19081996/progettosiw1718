@@ -52,25 +52,17 @@
 			</div>
 			<br>
 			
-			<form:form action="makeLogin" modelAttribute="responsabile" class="login-form">
-				<!--  messo dentro error-message per spostarlo insieme agli input -->
-				<span class="error-message">${error}</span>
-				
-				<!-- mettere email e pass allineate -->
-				
-				Email: <form:input path="email" />
-				
-				<br><br>
-				
-				Password: <form:password path="password" />
-				
-				<br><br>
-				
-				<!-- Modificare css come pulsante blu -->
-				
-				<!--  per far venire come pulsante in alto agg js per mandare comando di login -->
-				<input type="submit" value="Login" class="enter_button"/>
-			</form:form>	
+			<form name="f" action="/login" method="post">
+			<div>
+				<label>Email : <input type="text" name="username" /></label>
+			</div>
+			<div>
+				<label>Password: <input type="password" name="password" /></label>
+			</div>
+			<div>
+				<input type="submit" value="Entra" />
+			</div>
+		</form>	
 		</div>
 	</div>
 	

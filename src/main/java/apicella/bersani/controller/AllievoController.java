@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -53,30 +54,15 @@ public class AllievoController {
 	// Controller iniziale per uc2
 	@RequestMapping("/cercaAllievo")
 	public String prova2(HttpSession session, Model model) {
-
-		Responsabile r=(Responsabile) session.getAttribute("responsabileLoggato");
-		if (r==null) {
-			model.addAttribute("responsabile", new Responsabile());
-			return "login";
-		}
 		return "controlloAllievoEsistente";
-
+		
 	}
 	
 	//UC1
 	@RequestMapping("/registrazioneAllievo")
 	public String prova1(HttpSession session, Model model) {
-
-		Responsabile r=(Responsabile) session.getAttribute("responsabileLoggato");
-
-		if (r==null) {
-			model.addAttribute("responsabile", new Responsabile());
-			return "login";
-		}
-		
 		model.addAttribute("allievo", new Allievo());
 		return "registrazioneAllievo";
-
 	}
 
 	@RequestMapping(value="/makeRegistration", method=RequestMethod.POST)
