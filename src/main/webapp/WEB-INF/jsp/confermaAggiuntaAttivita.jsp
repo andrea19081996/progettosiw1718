@@ -6,7 +6,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="/css/default.css" >
-<link rel="stylesheet" href="/resources/css/extra.css" >
+<link rel="stylesheet" href="/css/extra.css" >
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>HOME</title>
 </head>
@@ -52,7 +52,7 @@
 				<ul>
 					<li>Nome: ${attivita.nome}</li>
 					<li>Data: ${attivita.data}</li>
-					<li>Orario: ${attivita.orario}</li>
+					<li>Orario: ${attivita.orario.getTime()}</li>
 				</ul>
 			</div>
 		</div>

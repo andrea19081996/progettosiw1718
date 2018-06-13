@@ -33,11 +33,7 @@ public class AllievoService {
 	
 	
 	public boolean alreadyExists(Allievo allievo) {
-		Allievo allievi = this.repository.findByEmail(allievo.getEmail());
-		if (allievi!=null)
-			return true;
-		else 
-			return false;
+		return this.repository.existsByEmail(allievo.getEmail());
 	}
 	
 	

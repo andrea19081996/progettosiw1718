@@ -45,7 +45,7 @@ public class AllievoController {
 		{
 			System.out.println("Allievo trovato");
 			model.addAttribute("messaggio", "E' stato trovato il seguente allievo gia' registrato.");
-			model.addAttribute("allievoCercato", cercato.toHtmlString());
+			model.addAttribute("allievoCercato", cercato);
 		}
 		
 		return "controlloAllievoEsistente";

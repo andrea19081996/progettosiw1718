@@ -45,5 +45,10 @@ public class AttivitaService {
 		repository.save(a);
 	}
 	
+	public boolean alreadyExists(Attivita a )
+	{
+		return repository.existsByNomeAndDataAndOrario(a.getNome(), a.getData(), a.getOrario());
+	}
+	
 	
 }

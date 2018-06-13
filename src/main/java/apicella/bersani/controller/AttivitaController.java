@@ -41,13 +41,17 @@ public class AttivitaController {
 	}
 	
 	@RequestMapping("aggiungiAttivita")
-	public String aggiungiNuovaAttivita(@Valid @ModelAttribute("attivita") Attivita attivita, BindingResult bindingResult, HttpSession session, Model model)
+	public String aggiungiNuovaAttivita(@ModelAttribute("attivita") Attivita attivita, BindingResult bindingResult, HttpSession session, Model model)
 	{
 		this.validator.validate(attivita, bindingResult);
+		if(attivitaService.alreadyExists(attivita)) {
+			model.addAttribute("errore", "Questa attiivita' e' gia' presente nell'elenco.");
+			return "nuovaAttivita";
+		}
+		
 		System.out.println(bindingResult.getAllErrors());
 		if(bindingResult.hasErrors())
 			return "nuovaAttivita";
-		
 		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		Responsabile responsabile = responsabileService.findByEmail(user.getUsername());
 		

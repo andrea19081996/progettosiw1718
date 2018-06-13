@@ -6,7 +6,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="/css/default.css" >
-<link rel="stylesheet" href="/resources/css/extra.css" >
+<link rel="stylesheet" href="/css/extra.css" >
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>HOME</title>
 </head>

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
- <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -69,7 +69,32 @@
 				<span class="error-message">${messaggioErrore}</span>
 				
 				<br><br>
-				<span class="simple_text">${messaggio} <br><br>${allievoCercato }</span>
+				<span class="simple_text">${messaggio} 
+				<br><br>
+				<c:if test="${allievoCercato !=null}">
+					<table class="blueTable">
+						<thead>
+							<tr>
+								<td>Nome</td>
+								<td>Cognome</td>
+								<td>Email</td>
+								<td>Telefono</td>
+								<td>Data di nascita</td>
+								<td>Luogo di nascita</td>
+							</tr>
+						</thead>
+						<tr>
+							<td>${allievoCercato.nome }</td>
+							<td>${allievoCercato.cognome }</td>
+							<td>${allievoCercato.email }</td>
+							<td>${allievoCercato.telefono }</td>
+							<td>${allievoCercato.dataNascita }</td>
+							<td>${allievoCercato.luogoNascita }</td>
+						</tr> 
+					</table>
+				</c:if>
+				
+				</span>
 			</div>
 	</div>
 	

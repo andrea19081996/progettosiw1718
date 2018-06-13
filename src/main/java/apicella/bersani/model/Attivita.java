@@ -30,7 +30,7 @@ public class Attivita {
 	@Column(nullable=false, unique=true)
 	private String nome;
 	
-	@DateTimeFormat(pattern="dd-MM-yyyy")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date data;
 

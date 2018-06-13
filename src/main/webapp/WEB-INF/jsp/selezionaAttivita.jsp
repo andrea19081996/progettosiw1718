@@ -51,8 +51,8 @@
 				<span class="byline">Seleziona un'attività.</span>
 			</div>
 			<span class="simple_text">
-				E' stato selezionato l'allievo seguente: ${allievoSelezionato } <br>
-				Posti dsponibili: ${postidisponibili }<br>
+				E' stato selezionato l'allievo seguente: ${allievoSelezionato } <br><br>
+				Posti disponibili per oggi: ${postiDisponibili }<br>
 				Seleziona l'attività a cui iscrivere l'allievo:
 				<ul>
 					<c:forEach var="a" items="${listaAttivita}">

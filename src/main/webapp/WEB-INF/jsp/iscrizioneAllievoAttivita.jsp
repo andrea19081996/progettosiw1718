@@ -48,15 +48,15 @@
 		<div id="three-column" class="container">
 			<div class="title">
 				<h2>Iscrizione attività</h2>
-				<span class="byline">Seleziona una modalita'.</span>
+				<span class="byline">Iscrivi un allievo ad un'attivita' del tuo centro da questa pagina.</span>
 			</div>
 			<span class="simple_text">
 				<a href="registrazioneAllievo">Registra un nuovo allievo</a> oppure inserisci l'email di un allievo già registrato. 
-				<br>Se vuoi controllare se un allievo è già registrato <a href="cercaAllievo">clicca qui.</a> <br>
+				<br>Se vuoi controllare se un allievo è già registrato <a href="cercaAllievo">clicca qui.</a> <br><br>
 				<form action="selezionaAllievoEsistente" method="get">
 					<span class="error">${erroreSelezionaAllievo}</span>
 					Email dell'allievo: <input type="text" name="email" />
-					<input type="submit" value="Cerca" />
+					<input type="submit" class="enter_button" value="Cerca" />
 				</form>
 			</span>
 		</div>
