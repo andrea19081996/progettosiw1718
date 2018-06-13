@@ -51,14 +51,29 @@
 				<span class="byline">Seleziona un'attività.</span>
 			</div>
 			<span class="simple_text">
-				E' stato selezionato l'allievo seguente: ${allievoSelezionato } <br><br>
+				E' stato selezionato l'allievo seguente:<br> 
+				<strong>${allievoSelezionato.nome } ${allievoSelezionato.cognome }</strong> - Email: ${allievoSelezionato.email } <br><br>
 				Posti disponibili per oggi: ${postiDisponibili }<br>
 				Seleziona l'attività a cui iscrivere l'allievo:
-				<ul>
+				<c:if test="${listaAttivita.size() == 0 }">
+					Attenzione! Non ci sono attività disponibili per oggi!
+				</c:if>
+				<table class="blueTable">
+					<thead>
+						<tr>
+							<td>Nome</td>
+							<td>Data</td>
+							<td>Orario</td>
+						</tr>
+					</thead>
 					<c:forEach var="a" items="${listaAttivita}">
-						<li><a href="iscrivi/${a.id}">${a.nome}</a></li>
+						<tr>
+							<td><a href="iscrivi/${a.id}">${a.nome}</a></td>
+							<td>${a.data }</td>
+							<td>${a.orario }</td>
+						</tr>
 					</c:forEach>
-				</ul>
+				</table>
 			</span>
 		</div>
 	</div>

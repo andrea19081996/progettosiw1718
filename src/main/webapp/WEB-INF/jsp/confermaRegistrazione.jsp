@@ -49,14 +49,26 @@
 			<div class="title">
 				<h2>Registrazione completata</h2>
 				<span class="byline">Complimenti la registrazione è stata effettuata con successo.</span>
-				<ul>
-					<li>Nome: ${allievo.nome}</li>
-					<li>Cognome: ${allievo.cognome}</li>
-					<li>Email: ${allievo.email}</li>
-					<li>Telefono: ${allievo.telefono}</li>
-					<li>Data di Nascita: ${allievo.dataNascita}</li>
-					<li>Luogo di Nascita: ${allievo.luogoNascita}</li>
-				</ul>
+				<table class="blueTable">
+						<thead>
+							<tr>
+								<td>Nome</td>
+								<td>Cognome</td>
+								<td>Email</td>
+								<td>Telefono</td>
+								<td>Data di nascita</td>
+								<td>Luogo di nascita</td>
+							</tr>
+						</thead>
+						<tr>
+							<td>${allievo.nome }</td>
+							<td>${allievo.cognome }</td>
+							<td>${allievo.email }</td>
+							<td>${allievo.telefono }</td>
+							<td>${allievo.dataNascita }</td>
+							<td>${allievo.luogoNascita }</td>
+						</tr> 
+					</table>
 			</div>
 		</div>
 	</div>

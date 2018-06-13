@@ -50,9 +50,8 @@
 			<div class="title">
 				<h2>Controllo Allievo</h2>
 				<span class="byline">Inserisci l'email di un allievo per controllare se già è registrato al sistema.</span>
-			</div>
-		</div>
-		<div class="content">
+			
+		
 			<form action="controllaAllievo" method="get">
 					
 					<!-- mettere email e pass allineate -->
@@ -69,6 +68,7 @@
 				<span class="error-message">${messaggioErrore}</span>
 				
 				<br><br>
+				
 				<span class="simple_text">${messaggio} 
 				<br><br>
 				<c:if test="${allievoCercato !=null}">
@@ -93,9 +93,9 @@
 						</tr> 
 					</table>
 				</c:if>
-				
 				</span>
 			</div>
+		</div>
 	</div>
 	
 	<!-- FOOTER -->

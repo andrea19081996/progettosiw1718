@@ -52,7 +52,7 @@
 				<ul>
 					<li>Nome: ${attivita.nome}</li>
 					<li>Data: ${attivita.data}</li>
-					<li>Orario: ${attivita.orario.getTime()}</li>
+					<li>Orario: ${attivita.orario}</li>
 				</ul>
 			</div>
 		</div>
