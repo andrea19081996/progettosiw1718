@@ -24,7 +24,7 @@ public class ResponsabileUserDetailsService  implements UserDetailsService {
 	    UserBuilder builder = null;
 	    if (responsabile!=null) {
 	      builder = org.springframework.security.core.userdetails.User.withUsername(email);
-	      builder.password(new BCryptPasswordEncoder().encode(responsabile.getPassword()));
+	      builder.password(responsabile.getPassword());
 	      builder.roles(responsabile.getRuolo());
 	    } else {
 	      throw new UsernameNotFoundException("User not found.");

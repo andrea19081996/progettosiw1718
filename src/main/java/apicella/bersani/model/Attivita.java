@@ -27,14 +27,14 @@ public class Attivita {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@Column(nullable=false, unique=true)
+	@Column(nullable=false)
 	private String nome;
 	
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date data;
 
-	@DateTimeFormat(pattern="hh:mm")
+	@DateTimeFormat(pattern="HH:mm")
 	@Temporal(TemporalType.TIME)
 	private Date orario;
 

@@ -32,12 +32,7 @@ public class AttivitaValidator implements Validator{
         	errors.rejectValue("data", "dataNonValida");
         }
         
-        try {
-        	Date.parse((String) errors.getFieldValue("orario"));
-        }catch(Exception e)
-        {
-        	errors.rejectValue("orario", "orarioNonValido");
-        }
+      
 	}
 	
 	
