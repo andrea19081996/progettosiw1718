@@ -38,6 +38,30 @@ form.logout {
 	float: right;
 }
 
+.underline {
+		text-decoration: underline;
+	}
+	
+#box {
+	border: 1px solid rgba(0,0,0,.5);
+}
+
+.boxB div.list {
+	padding-left: 20px;
+	padding-top: 10px;
+}
+
+.boxB div.list ul {
+	color: #2651a8;
+}
+.boxB div.list a {
+	color: #2651a8;
+}
+
+.boxB div.list li {
+	padding: 4px;
+}
+
 input.logout {
 	background: transparent;
 	border: 0px;

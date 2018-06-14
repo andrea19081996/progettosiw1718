@@ -50,6 +50,30 @@
 				<h2>Homepage</h2>
 				<span class="byline">In questa pagina verranno descritti i casi d'uso e un collegamento per il login.</span>
 			</div>
+		
+			<div class="boxA" id="box" >
+				Hai effettuato il login come <span class="underline"><sec:authentication property="principal.username" /></span>
+				<br><br>
+				Informazioni sul tuo centro:<br>
+				<ul>
+					<li>Nome: ${responsabile.centro.nome }</li>
+					<li>Indirizzo: ${responsabile.centro.indirizzo}</li>
+					<li>Telefono: ${responsabile.centro.telefono }</li>
+					<li>Capienza massima: ${responsabile.centro.numMax}</li>
+				</ul>
+			</div>
+			<div class="boxB">
+				<h3>Ecco cosa puoi fare!</h3>
+				<div class="list">
+					<ul>
+						<li><a href="/registrazioneAllievo">Nuovo allievo</a></li>
+						<li><a href="/cercaAllievo">Cerca allievo</a></li>
+						<li><a href="/iscriviAllievo">Iscrizione attivita'</a></li>
+						<li><a href="/nuovaAttivita">Nuova attivita</a></li>
+						<li><a href="/fivethCase">5CASO D'USO</a></li>
+					</ul>
+				</div>
+			</div>
 		</div>
 	</div>
 	

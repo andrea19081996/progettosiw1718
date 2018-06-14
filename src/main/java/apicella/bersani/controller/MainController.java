@@ -1,14 +1,15 @@
 package apicella.bersani.controller;
 
-import javax.servlet.http.HttpSession;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import apicella.bersani.model.Azienda;
 import apicella.bersani.model.Responsabile;
+import apicella.bersani.service.ResponsabileService;
 
 /**
  * Solo per testare la struttura del database.
@@ -16,13 +17,14 @@ import apicella.bersani.model.Responsabile;
 @Controller
 public class MainController {
 	
+	@Autowired 
+	ResponsabileService responsabileService;
+	
 	@RequestMapping(value= {"/","/index"})
-	protected String showHomePage(HttpSession session) {
-		Azienda azienda = (Azienda) session.getAttribute("azienda");
-		if(azienda==null)
-		{	azienda = new Azienda();
-			session.setAttribute("azienda", azienda);
-		}
+	protected String showHomePage(Model model) {
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		Responsabile responsabile = responsabileService.findByEmail(user.getUsername());
+		model.addAttribute("responsabile", responsabile);
 		
 		return "index";
 	}
