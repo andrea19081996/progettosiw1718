@@ -94,7 +94,7 @@
 				
 				<br><br>
 				<!--  per far venire come pulsante in alto agg js per mandare comando di login -->
-				<input type="submit" value="Registra" class=""/>
+				<input type="submit" value="Registra" class="enter_button"/>
 			</form:form>	
 		</div>
 	</div>

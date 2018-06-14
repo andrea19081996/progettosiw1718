@@ -62,7 +62,7 @@
 				Data (GG-MM-AAAA): <form:input type="date" path="data" /><span class="error"> <form:errors path="data" /> </span>
 				
 				<br><br>
-				Orario: <form:input path="orario" type="text" /><span class="error"> <form:errors path="orario" /> </span>
+				Orario: <form:input path="orario" type="time" /><span class="error"> <form:errors path="orario" /> </span>
 				
 				<br><br>
 				

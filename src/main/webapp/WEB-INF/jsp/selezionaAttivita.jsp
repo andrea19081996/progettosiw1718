@@ -56,8 +56,9 @@
 				Posti disponibili per oggi: ${postiDisponibili }<br>
 				Seleziona l'attività a cui iscrivere l'allievo:
 				<c:if test="${listaAttivita.size() == 0 }">
-					Attenzione! Non ci sono attività disponibili per oggi!
+					<span class="error">Attenzione! Non ci sono attività disponibili per oggi!</span>
 				</c:if>
+				<br><br>
 				<table class="blueTable">
 					<thead>
 						<tr>
