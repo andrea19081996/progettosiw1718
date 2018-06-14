@@ -26,7 +26,9 @@ public class AttivitaValidator implements Validator{
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "orario", "richiesto");
 
         Attivita a = (Attivita) arg0;
-        if(!errors.hasFieldErrors("data") && a.getData().before(getDataOdierna()))
+        if(errors.hasFieldErrors("data") 
+        		//&& a.getData().before(getDataOdierna())
+        		)
         {
         	errors.rejectValue("data", "dataNonValida");
         }

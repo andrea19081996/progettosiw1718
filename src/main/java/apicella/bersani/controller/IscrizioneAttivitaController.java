@@ -1,5 +1,6 @@
 package apicella.bersani.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -84,36 +85,34 @@ public class IscrizioneAttivitaController {
 		// Tolgo l'allievo selezionato dalla sessione
 		session.removeAttribute("allievoSelezionato");
 		Attivita attivita = attivitaService.findById(id);
-		if(allievo!=null && attivita!=null)
-		{
-			System.out.println("Iscrivi: attivita e allievo trovati.");
-			// Iscrivo all'attivita
-			allievo.addAttivita(attivita);
-			System.out.println("Iscrivi: ho aggiunto l'attivita all'allievo");
-			attivita.addAllievo(allievo);
-			System.out.println("Iscrivi: ho aggiunto l'allievo all'attivita");
-			try {
-				allievoService.updateAttivita(allievo);
-			}catch(InvalidDataAccessApiUsageException e)
-			{
-				// L'allievo è gia registrato
-				e.printStackTrace();
-				model.addAttribute("messaggioErrore", "L'allievo e' gia' regstrato a questa attività.");
-				return "errore";
-			}catch(Exception e)
-			{
-				// Altro errore
-				e.printStackTrace();
-				return "errore";
-			}
-			
-		}else
+		if(allievo==null && attivita==null)
 		{
 			model.addAttribute("messaggioErrore", "Non è possibile eseguire l'iscrizione a questa attività.");
 			return "errore";
 		}
+		
+		if(giaIscritto(attivita, allievo)) {
+			model.addAttribute("messaggioErrore", "L'allievo e' gia' regstrato a questa attività.");
+			return "errore";
+		}
+			
+		// Iscrivo all'attivita
+		List<Attivita> listaAttivita = new ArrayList<>(1);
+		listaAttivita.add(attivita);
+		allievo.setAttivita(listaAttivita);
+		
+		List<Allievo> listaAllievi = new ArrayList<>(1);
+		listaAllievi.add(allievo);
+		attivita.setAllievi(listaAllievi);
+		
+		// Salvo nel database
+		allievoService.updateAttivita(allievo);
 
 		return "confermaIscrizione";
+	}
+
+	private boolean giaIscritto(Attivita attivita, Allievo allievo) {
+		return attivita.getAllievi().contains(allievo);
 	}
 
 }

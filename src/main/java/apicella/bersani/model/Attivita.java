@@ -38,7 +38,7 @@ public class Attivita {
 	@Temporal(TemporalType.TIME)
 	private Date orario;
 
-	@ManyToMany(cascade= {CascadeType.PERSIST}, fetch=FetchType.EAGER)
+	@ManyToMany(cascade= {CascadeType.MERGE,CascadeType.PERSIST, CascadeType.REFRESH})
 	private List<Allievo> allievi;
 	
 	@ManyToOne
@@ -93,13 +93,7 @@ public class Attivita {
 		this.allievi = allievi;
 	}
 	
-	public void addAllievo(Allievo a)
-	{
-		if(this.allievi==null)
-			this.allievi = new ArrayList<>();
-		
-		this.allievi.add(a);
-	}
+	
 
 	@Override
 	public int hashCode() {

@@ -54,7 +54,7 @@ public class Allievo {
 //	@NotNull(message="obbligatorio")
 	private String luogoNascita;
 	
-	@ManyToMany(mappedBy="allievi",cascade= {CascadeType.MERGE, CascadeType.PERSIST}, fetch=FetchType.EAGER)
+	@ManyToMany(mappedBy="allievi",cascade= {CascadeType.MERGE,CascadeType.PERSIST, CascadeType.REFRESH})
 	private List<Attivita> attivita;
 	
 	
@@ -122,18 +122,11 @@ public class Allievo {
 		this.luogoNascita = luogoNascita;
 	}
 	
-	public void addAttivita(Attivita a)
-	{
-		if(this.attivita==null)
-			this.attivita = new ArrayList<>();
-		this.attivita.add(a);
-	}
 	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((attivita == null) ? 0 : attivita.hashCode());
 		result = prime * result + ((cognome == null) ? 0 : cognome.hashCode());
 		result = prime * result + ((dataNascita == null) ? 0 : dataNascita.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
@@ -151,11 +144,6 @@ public class Allievo {
 		if (getClass() != obj.getClass())
 			return false;
 		Allievo other = (Allievo) obj;
-		if (attivita == null) {
-			if (other.attivita != null)
-				return false;
-		} else if (!attivita.equals(other.attivita))
-			return false;
 		if (cognome == null) {
 			if (other.cognome != null)
 				return false;
@@ -188,17 +176,11 @@ public class Allievo {
 			return false;
 		return true;
 	}
+	
 	@Override
 	public String toString() {
 		return "Nome: " + nome + "\nCognome=" + cognome + "\nEmail=" + email + "\nTelefono=" + telefono
 				+ "\nDataNascita=" + dataNascita + "\nLuogoNascita=" + luogoNascita;
 	}
-	public String toHtmlString() {
-		// For html useage
-		return toString().replaceAll("\\n", "<br>");
-	}
-	
-	
 
-	
 }

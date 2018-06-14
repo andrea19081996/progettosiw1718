@@ -56,11 +56,13 @@
 			<div>
 				<label>Email : <input type="text" name="username" /></label>
 			</div>
+			<br>
 			<div>
 				<label>Password: <input type="password" name="password" /></label>
 			</div>
+			<br>
 			<div>
-				<input type="submit" value="Entra" />
+				<input type="submit" value="Entra" class="enter_button" />
 			</div>
 		</form>	
 		</div>
