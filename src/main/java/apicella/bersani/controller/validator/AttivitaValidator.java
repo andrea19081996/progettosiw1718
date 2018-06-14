@@ -1,14 +1,13 @@
 package apicella.bersani.controller.validator;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
-import org.springframework.validation.FieldError;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import apicella.bersani.model.Allievo;
 import apicella.bersani.model.Attivita;
 
 @Component
@@ -27,12 +26,16 @@ public class AttivitaValidator implements Validator{
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "orario", "richiesto");
 
         Attivita a = (Attivita) arg0;
-        if(errors.hasFieldErrors("data"))
+        if(!errors.hasFieldErrors("data") && a.getData().before(getDataOdierna()))
         {
         	errors.rejectValue("data", "dataNonValida");
         }
         
       
+	}
+	
+	private Date getDataOdierna() {
+		return Calendar.getInstance().getTime();
 	}
 	
 	

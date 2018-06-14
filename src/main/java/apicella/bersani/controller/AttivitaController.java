@@ -65,6 +65,12 @@ public class AttivitaController {
 		attivita.setCentro(responsabile.getCentro());
 		attivitaService.save(attivita);
 		model.addAttribute("attivita",attivita);
+		SimpleDateFormat dateFormatter =new SimpleDateFormat("dd-MM-yyyy");
+		SimpleDateFormat timeFormatter=new SimpleDateFormat("HH:mm");
+		String data = dateFormatter.format(attivita.getData());
+		String orario = timeFormatter.format(attivita.getOrario());
+		model.addAttribute("data", data);
+		model.addAttribute("orario", orario);
 		return "confermaAggiuntaAttivita";
 	}
 }

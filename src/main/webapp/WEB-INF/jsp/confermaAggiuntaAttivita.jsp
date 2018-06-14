@@ -51,8 +51,8 @@
 			
 				<ul>
 					<li>Nome: ${attivita.nome}</li>
-					<li>Data: ${attivita.data}</li>
-					<li>Orario: ${attivita.orario}</li>
+					<li>Data: ${data}</li>
+					<li>Orario: ${orario}</li>
 				</ul>
 			</div>
 		</div>

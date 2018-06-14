@@ -65,7 +65,7 @@
 							<td>${allievo.cognome }</td>
 							<td>${allievo.email }</td>
 							<td>${allievo.telefono }</td>
-							<td>${allievo.dataNascita }</td>
+							<td>${dataNascita }</td>
 							<td>${allievo.luogoNascita }</td>
 						</tr> 
 					</table>

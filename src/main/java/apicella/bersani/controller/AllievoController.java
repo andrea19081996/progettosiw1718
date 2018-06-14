@@ -1,5 +1,7 @@
 package apicella.bersani.controller;
 
+import java.text.SimpleDateFormat;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -74,6 +76,8 @@ public class AllievoController {
 	        } 	else {
 		            this.repository.save(allievo);
 		            model.addAttribute("allievo",allievo);
+		            SimpleDateFormat formatter=new SimpleDateFormat("dd-MM-yyyy");
+		            model.addAttribute("dataNascita", formatter.format(allievo.getDataNascita()));
 		            return "confermaRegistrazione";
 		        }
         }
