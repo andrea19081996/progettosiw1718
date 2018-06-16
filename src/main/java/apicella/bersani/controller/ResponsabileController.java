@@ -31,9 +31,10 @@ public class ResponsabileController {
 		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		Responsabile r = responsabileService.findByEmail(user.getUsername());
 		
-		if(!r.getRuolo().equals("direttore")){
-			return "erroreResponsabile";
-		}
+		//da mettere quando si tratterà diverse opzioni
+//		if(!r.getRuolo().equals("direttore")){
+//			return "erroreResponsabile";
+//		}
 		
 		List<Centro> centri = this.centroService.findAll();
 		model.addAttribute("centri",centri);

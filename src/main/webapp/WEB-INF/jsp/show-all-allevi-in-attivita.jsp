@@ -22,7 +22,7 @@
 			<div id="menu">
 			
 				<ul>
-					<li class="active"><a href="/index">Homepage</a></li>
+					<li><a href="/index">Homepage</a></li>
 					<sec:authorize access="isAuthenticated()"> 
 						<form action="/logout" method="post" class="logout">
 						  <input type="submit" value="LOGOUT" class="logout"/>
@@ -32,7 +32,7 @@
 					<li><a href="/cercaAllievo">Cerca allievo</a></li>
 					<li><a href="/iscriviAllievo">Iscrizione attivita'</a></li>
 					<li><a href="/nuovaAttivita">Nuova attivita</a></li>
-					<li><a href="/scegliAttivita">Controlla attività</a></li>
+					<li><a href="/fivethCase">5CASO D'USO</a></li>
 				</ul>
 			</div>
 		</div>
@@ -47,32 +47,14 @@
 	<div id="wrapper">
 		<div id="three-column" class="container">
 			<div class="title">
-				<h2>Homepage</h2>
-				<span class="byline">In questa pagina verranno descritti i casi d'uso e un collegamento per il login.</span>
-			</div>
-		
-			<div class="boxA" id="box" >
-				Hai effettuato il login come <span class="underline"><sec:authentication property="principal.username" /></span>
-				<br><br>
-				Informazioni sul tuo centro:<br>
+				<h2>Allievi</h2>
+				<span class="byline">Elenco Allievi iscritti all'attività selezionata.</span>
+				<h2> Totale Iscritti ${totale} </h2>
 				<ul>
-					<li>Nome: ${responsabile.centro.nome }</li>
-					<li>Indirizzo: ${responsabile.centro.indirizzo}</li>
-					<li>Telefono: ${responsabile.centro.telefono }</li>
-					<li>Capienza massima: ${responsabile.centro.numMax}</li>
+					<c:forEach var="temp" items="${allievi}" >
+						<li><span> ${temp.nome}</span><span> ${temp.cognome}</span><span> ${temp.email} </span> </li>
+					</c:forEach>
 				</ul>
-			</div>
-			<div class="boxB">
-				<h3>Ecco cosa puoi fare!</h3>
-				<div class="list">
-					<ul>
-						<li><a href="/registrazioneAllievo">Nuovo allievo</a></li>
-						<li><a href="/cercaAllievo">Cerca allievo</a></li>
-						<li><a href="/iscriviAllievo">Iscrizione attivita'</a></li>
-						<li><a href="/nuovaAttivita">Nuova attivita</a></li>
-						<li><a href="/fivethCase">5CASO D'USO</a></li>
-					</ul>
-				</div>
 			</div>
 		</div>
 	</div>

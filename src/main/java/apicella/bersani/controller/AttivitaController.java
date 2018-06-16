@@ -2,24 +2,22 @@ package apicella.bersani.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.TimeZone;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import apicella.bersani.controller.validator.AttivitaValidator;
+import apicella.bersani.model.Allievo;
 import apicella.bersani.model.Attivita;
 import apicella.bersani.model.Responsabile;
 import apicella.bersani.service.AttivitaService;
@@ -72,5 +70,21 @@ public class AttivitaController {
 		model.addAttribute("data", data);
 		model.addAttribute("orario", orario);
 		return "confermaAggiuntaAttivita";
+	}
+	
+	
+	//UC5
+	
+	@RequestMapping("/centro/attivita/{id}")
+	public String sceltaAttivita(Model model, @PathVariable("id") Long id) {
+		
+		Attivita attivita= this.attivitaService.findById(id);
+		List<Allievo> allievi = attivita.getAllievi();
+		
+		model.addAttribute("allievi", allievi);
+		model.addAttribute("totale", allievi.size());
+		
+		return "show-all-allevi-in-attivita";
+		
 	}
 }

@@ -38,21 +38,22 @@ public class ProgettoSiw1718Application extends SpringBootServletInitializer {
 	@PostConstruct
 	public void init()
 	{	
-		/*
-		Responsabile r = new Responsabile();
-		r.setEmail("prova@prova.it");
-		r.setPassword("prova");
-		Centro centro = new Centro();
-		centro.setAttivita(new LinkedList<Attivita>());
-		centro.setEmail("prova");
-		centro.setIndirizzo("indirizzo");
-		centro.setNome("Centro");
-		centro.setNumMax(100);
-		centro.setTelefono("123456789");
-		r.setCentro(centro);
-		r.setRuolo("responsabile");
 
-		responsabileService.save(r);
-*/
+//		Responsabile r = new Responsabile();
+//		r.setEmail("prova@prova.it");
+//		r.setPassword("prova");
+//		Centro centro = new Centro();
+//		centro.setAttivita(new LinkedList<Attivita>());
+//		centro.setEmail("prova");
+//		centro.setIndirizzo("indirizzo");
+//		centro.setNome("Centro");
+//		centro.setNumMax(100);
+//		centro.setTelefono("123456789");
+//		r.setCentro(centro);
+//		r.setRuolo("responsabile");
+//		responsabileService.save(r);
+		
+
+
 	}
 }
