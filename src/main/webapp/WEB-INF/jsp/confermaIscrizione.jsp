@@ -48,7 +48,7 @@
 		<div id="three-column" class="container">
 			<div class="title">
 				<h2>Iscrizione attività</h2>
-				<span class="byline">Seleziona una modalita'.</span>
+				
 			</div>
 			<span class="simple_text">
 				Iscrizione effettuata.

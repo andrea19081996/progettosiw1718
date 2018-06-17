@@ -55,6 +55,7 @@ public class IscrizioneAttivitaController {
 
 		// Se trovo l'allievo seleziono tutte le attività del centro.
 		// Prendo il resposanbile dalla sessione
+		
 		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		Responsabile r = responsabileService.findByEmail(user.getUsername());
 

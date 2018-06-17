@@ -50,8 +50,10 @@
 				<h2>Centri esistenti</h2>
 				<span class="byline">Scegli uno delle attività sottostanti per visualizzare più informazioni.</span>
 				<ul>
+					<br><br>
 					<c:forEach var="temp" items="${attivita}" >
 						<li> <a href="/centro/attivita/${temp.id}">${temp.nome}</a> </li>
+						<br>
 					</c:forEach>
 				</ul>
 			</div>
