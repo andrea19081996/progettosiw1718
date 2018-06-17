@@ -20,16 +20,20 @@ public class Responsabile {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	
 	@Column(nullable=false,unique=true)
 	private String email;
+	
 	@Column(nullable=false)
 	private String password;
 	
 	@OneToOne(fetch=FetchType.EAGER, cascade= {CascadeType.PERSIST})
 	private Centro centro;
 	
+	@Column(nullable=false)
 	private String ruolo;
+	
+	
+	
 	
 	public String getRuolo() {
 		return ruolo;
@@ -43,8 +47,6 @@ public class Responsabile {
 	public void setCentro(Centro centro) {
 		this.centro = centro;
 	}
-	
-	
 	public String getEmail() {
 		return email;
 	}

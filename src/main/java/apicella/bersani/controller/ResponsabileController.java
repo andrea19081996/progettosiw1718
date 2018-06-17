@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import apicella.bersani.model.Attivita;
 import apicella.bersani.model.Centro;
 import apicella.bersani.model.Responsabile;
 import apicella.bersani.service.CentroService;
@@ -35,9 +36,18 @@ public class ResponsabileController {
 //		if(!r.getRuolo().equals("direttore")){
 //			return "erroreResponsabile";
 //		}
-		
+		//caso direttore
 		List<Centro> centri = this.centroService.findAll();
 		model.addAttribute("centri",centri);
+		
+		
+		//caso generale qualsiasi responsabile
+//		Centro c=r.getCentro();
+//		List<Attivita> attivita = c.getAttivita();
+//		model.addAttribute("attivita", attivita);
+//		return "show-attivita";
+		
+		
 		
 		return "scegliCentro";
 		
