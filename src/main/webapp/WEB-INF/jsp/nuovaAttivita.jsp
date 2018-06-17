@@ -33,7 +33,7 @@
 					<li><a href="/cercaAllievo">Cerca allievo</a></li>
 					<li><a href="/iscriviAllievo">Iscrizione attivita'</a></li>
 					<li class="active"><a href="/nuovaAttivita">Nuova attivita'</a></li>
-					<li><a href="/fivethCase">5CASO D'USO</a></li>
+					<li><a href="/scegliAttivita">Controlla attività</a></li>
 				</ul>
 			</div>
 		</div>
