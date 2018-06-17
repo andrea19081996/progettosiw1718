@@ -69,9 +69,9 @@
 	<div id="wrapper">
 		<div id="three-column" class="container">
 			<div class="title">
-				<h2>Allievi</h2>
-				<span class="byline">Elenco Allievi iscritti all'attività selezionata.</span>
 				<h2> Totale Iscritti ${totale} </h2>
+				<span class="byline">Elenco Allievi iscritti all'attività selezionata.</span>
+				
 				<br><br>
 				
 				<div class="table100 ver3 m-b-110">
