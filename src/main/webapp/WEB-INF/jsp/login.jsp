@@ -48,9 +48,8 @@
 		<div id="three-column" class="container">
 			<div class="title">
 				<h2>Login</h2>
-				<span class="byline">In questa pagina verranno descritti i casi d'uso e un collegamento per il login.</span>
 			</div>
-			<br>
+
 			
 			<form name="f" action="/login" method="post">
 			<div>
@@ -62,6 +61,7 @@
 			</div>
 			<br>
 			<div>
+				<br>
 				<input type="submit" value="Entra" class="enter_button" />
 			</div>
 		</form>	
