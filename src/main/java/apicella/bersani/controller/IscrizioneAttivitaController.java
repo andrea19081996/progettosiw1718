@@ -61,7 +61,11 @@ public class IscrizioneAttivitaController {
 
 		Centro c = r.getCentro();
 		// Prendo tutte le attività odierne e controllo la capienza del centro.
-		List<Attivita> attivita = attivitaService.getAttivitaOdierne(c);
+		
+//		List<Attivita> attivita = attivitaService.getAttivitaOdierne(c);
+		
+		List<Attivita> attivita = c.getAttivita();
+		
 		int postiOccupati = 0;
 		for(Attivita att : attivita)
 			postiOccupati = postiOccupati + att.getAllievi().size();
@@ -93,7 +97,7 @@ public class IscrizioneAttivitaController {
 		}
 		
 		if(giaIscritto(attivita, allievo)) {
-			model.addAttribute("messaggioErrore", "L'allievo e' gia' regstrato a questa attività.");
+			model.addAttribute("messaggioErrore", "L'allievo e' gia' registrato a questa attività.");
 			return "errore";
 		}
 			
