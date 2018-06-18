@@ -53,7 +53,12 @@ public class ProgettoSiw1718Application extends SpringBootServletInitializer {
 //		r.setRuolo("responsabile");
 //		responsabileService.save(r);
 		
-
+		/*Responsabile d = new Responsabile();
+		d.setEmail("direttore@direttore.it");
+		d.setPassword("prova");
+		d.setRuolo("direttore");
+		d.setCentro(centro);
+		responsabileService.save(d);*/
 
 	}
 }

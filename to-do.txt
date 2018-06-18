@@ -1,4 +1,3 @@
 DA FARE:
 	- Decidere dove posizinare il titolo della pagina (vedi differenze tra pagine di uc1 e uc2)
-	- Sistemare link nelle pagine
-	- Finire css per tabella di presentazione dati.
+	- Tabella con 6 colonne (per allievi)
