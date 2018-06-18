@@ -6,7 +6,6 @@
 <html>
 <head>
 
-
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="/images/icons/favicon.ico"/>
@@ -54,7 +53,7 @@
 					<li><a href="/cercaAllievo">Cerca allievo</a></li>
 					<li><a href="/iscriviAllievo">Iscrizione attivita'</a></li>
 					<li><a href="/nuovaAttivita">Nuova attivita</a></li>
-					<li class="active"><a href="/scegliAttivita">Controlla attività</a></li>
+					<li class="active"><a href="/scegliCentro">Controlla attività</a></li>
 				</ul>
 			</div>
 		</div>

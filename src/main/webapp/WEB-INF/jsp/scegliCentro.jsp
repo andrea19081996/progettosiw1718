@@ -50,7 +50,7 @@
 					<li><a href="/cercaAllievo">Cerca allievo</a></li>
 					<li><a href="/iscriviAllievo">Iscrizione attivita'</a></li>
 					<li><a href="/nuovaAttivita">Nuova attivita</a></li>
-					<li class="active"><a href="/scegliAttivita">Controlla attività</a></li>
+					<li class="active"><a href="/scegliCentro">Controlla attività</a></li>
 				</ul>
 			</div>
 		</div>
@@ -88,11 +88,11 @@
 							<tbody>
 								<c:forEach var="temp" items="${centri}" >
 									<tr class="row100 body">
-										<td class="cell100 column1"><a href="/centro/attivita/${temp.id}">${temp.nome}</a></td>
-										<td class="cell100 column2"><a href="/centro/attivita/${temp.id}">${temp.indirizzo}</a></td>
-										<td class="cell100 column3"><a href="/centro/attivita/${temp.id}">${temp.email}</a></td>
-										<td class="cell100 column4"><a href="/centro/attivita/${temp.id}">${temp.telefono}</a></td>
-										<td class="cell100 column5"><a href="/centro/attivita/${temp.id}">${temp.numMax}</a></td>
+										<td class="cell100 column1"><a href="/centro/${temp.id}">${temp.nome}</a></td>
+										<td class="cell100 column2"><a href="/centro/${temp.id}">${temp.indirizzo}</a></td>
+										<td class="cell100 column3"><a href="/centro/${temp.id}">${temp.email}</a></td>
+										<td class="cell100 column4"><a href="/centro/${temp.id}">${temp.telefono}</a></td>
+										<td class="cell100 column5"><a href="/centro/${temp.id}">${temp.numMax}</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>

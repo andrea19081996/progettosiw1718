@@ -50,7 +50,7 @@
 					<li><a href="/cercaAllievo">Cerca allievo</a></li>
 					<li><a href="/iscriviAllievo">Iscrizione attivita'</a></li>
 					<li><a href="/nuovaAttivita">Nuova attivita</a></li>
-					<li class="active"><a href="/scegliAttivita">Controlla attività</a></li>
+					<li class="active"><a href="/scegliCentro">Controlla attività</a></li>
 				</ul>
 			</div>
 		</div>
@@ -65,7 +65,7 @@
 	<div id="wrapper">
 		<div id="three-column" class="container">
 			<div class="title">
-				<h2>Centri esistenti</h2>
+				<h2>Attività esistenti</h2>
 				<span class="byline">Scegli uno delle attività sottostanti per visualizzare più informazioni.</span>
 				
 				<br><br>
