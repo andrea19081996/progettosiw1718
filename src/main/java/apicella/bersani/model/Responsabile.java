@@ -23,7 +23,7 @@ public class Responsabile {
 	@Column(nullable=false,unique=true)
 	private String email;
 	
-	@Column(nullable=false)
+	@Column()
 	private String password;
 	
 	@OneToOne(fetch=FetchType.EAGER, cascade= {CascadeType.PERSIST})

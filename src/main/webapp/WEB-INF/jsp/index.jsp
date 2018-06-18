@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
- <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -31,11 +30,6 @@
 	<!-- HEADER -->
 	<div id="header-wrapper">
 		<div id="header" class="container">
-			<sec:authorize access="isAuthenticated()"> 
-				<div id="logo">
-						<h1>Benvenuto <a href="#"><sec:authentication property="principal.username" /></a></h1>
-					</div>
-			</sec:authorize>
 			<div id="menu">
 			
 				<ul>
@@ -69,7 +63,7 @@
 			</div>
 		
 			<div class="boxA" id="box" >
-				Hai effettuato il login come <span class="underline"><sec:authentication property="principal.username" /></span>
+				Hai effettuato il login come <span class="underline"></span>
 				<br><br>
 				Informazioni sul tuo centro:<br>
 				<ul>

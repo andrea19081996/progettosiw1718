@@ -82,6 +82,12 @@
 				<input type="submit" value="Entra" class="enter_button" />
 			</div>
 		</form>	
+		<span>
+			Oppure effettua il login con 
+			<c:forEach var="url" items="${urls}">
+				<a href="${url.value}">${url.key}</a>
+			</c:forEach>
+		</span>
 		</div>
 	</div>
 	
