@@ -1,3 +1,4 @@
 DA FARE:
-	- Decidere dove posizinare il titolo della pagina (vedi differenze tra pagine di uc1 e uc2)
 	- Tabella con 6 colonne (per allievi)
+	- Form utente
+	- Sistemare foto

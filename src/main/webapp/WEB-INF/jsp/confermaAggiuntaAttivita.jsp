@@ -40,8 +40,7 @@
 			<sec:authorize access="isAuthenticated()">
 				<div id="logo">
 					<h1>
-						Benvenuto <a href="#"><sec:authentication
-								property="principal.username" /></a>
+						<h1><a href="#">Benvenuto ${responsabile.email }</a></h1>
 					</h1>
 				</div>
 			</sec:authorize>

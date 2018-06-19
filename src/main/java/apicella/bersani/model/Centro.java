@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -37,7 +38,7 @@ public class Centro {
 	@Column(nullable=false)
 	private Integer numMax;
 	
-	@OneToMany (cascade= {CascadeType.PERSIST, CascadeType.REMOVE}, mappedBy="centro")
+	@OneToMany (cascade= {CascadeType.ALL}, mappedBy="centro")
 	private List<Attivita> attivita;
 	
 	

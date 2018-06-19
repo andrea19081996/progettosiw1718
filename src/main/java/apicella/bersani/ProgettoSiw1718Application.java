@@ -1,7 +1,5 @@
 package apicella.bersani;
 
-import java.util.LinkedList;
-
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,15 +8,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
-import apicella.bersani.model.Attivita;
-import apicella.bersani.model.Centro;
 import apicella.bersani.model.Responsabile;
 import apicella.bersani.service.AllievoService;
 import apicella.bersani.service.ResponsabileService;
 
 @SpringBootApplication
 public class ProgettoSiw1718Application extends SpringBootServletInitializer {
-
 	
 	@Autowired
 	ResponsabileService responsabileService;

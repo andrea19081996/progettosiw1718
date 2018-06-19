@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -56,8 +57,8 @@ public class AttivitaController {
 		System.out.println(bindingResult.getAllErrors());
 		if(bindingResult.hasErrors())
 			return "nuovaAttivita";
-		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		Responsabile responsabile = responsabileService.findByEmail(user.getUsername());
+		
+		Responsabile responsabile = responsabileService.findByEmail((String) session.getAttribute("email"));
 		
 		attivita.setAllievi(new ArrayList<>());
 		attivita.setCentro(responsabile.getCentro());

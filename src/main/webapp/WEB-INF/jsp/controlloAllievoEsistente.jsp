@@ -34,7 +34,7 @@
 		<div id="header" class="container">
 			<sec:authorize access="isAuthenticated()"> 
 				<div id="logo">
-						<h1>Benvenuto <a href="#"><sec:authentication property="principal.username" /></a></h1>
+						<h1><a href="#">Benvenuto ${responsabile.email }</a></h1>
 					</div>
 			</sec:authorize>
 			<div id="menu">

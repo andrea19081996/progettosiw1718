@@ -33,7 +33,7 @@
 		<div id="header" class="container">
 			<% if(session.getAttribute("responsabileLoggato") != null) { %>
 				<div id="logo">
-						<h1>Benvenuto <a href="#">${responsabileLoggato.email }</a></h1>
+						<h1><a href="#">Benvenuto ${responsabile.email }</a></h1>
 					</div>
 			<% } %>
 			<div id="menu">

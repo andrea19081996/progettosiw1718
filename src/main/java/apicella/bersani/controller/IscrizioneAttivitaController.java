@@ -6,11 +6,11 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -43,7 +43,7 @@ public class IscrizioneAttivitaController {
 	}
 
 	// Se il resposnabile sceglie di usare un allievo già esistente, fornisce l'email e l'allievo viene recuperato dal database.
-	@RequestMapping("selezionaAllievoEsistente")
+	@GetMapping("selezionaAllievoEsistente")
 	public String selezionaAllievoEsistente(@RequestParam("email") String email, Model model,HttpSession session)
 	{
 		Allievo trovato = allievoService.findByEmail(email);
@@ -55,9 +55,7 @@ public class IscrizioneAttivitaController {
 
 		// Se trovo l'allievo seleziono tutte le attività del centro.
 		// Prendo il resposanbile dalla sessione
-		
-		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		Responsabile r = responsabileService.findByEmail(user.getUsername());
+		Responsabile r = responsabileService.findByEmail((String) session.getAttribute("email"));
 
 		Centro c = r.getCentro();
 		// Prendo tutte le attività odierne e controllo la capienza del centro.

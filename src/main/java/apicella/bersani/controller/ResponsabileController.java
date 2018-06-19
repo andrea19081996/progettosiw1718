@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,9 +29,7 @@ public class ResponsabileController {
 
 	@RequestMapping("/scegliCentro")
 	public String cerca(HttpSession session, Model model){
-
-		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		Responsabile r = responsabileService.findByEmail(user.getUsername());
+		Responsabile r = responsabileService.findByEmail((String) session.getAttribute("email"));
 
 		if(r.getRuolo().equals("direttore")) {
 			//caso direttore

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ResolvableType;
@@ -42,39 +43,39 @@ public class MainController {
 	private ClientRegistrationRepository clientRegistrationRepository;
 
 	@RequestMapping(value= {"/","/index"})
-	protected String showHomePage(Model model, HttpServletRequest request) {
-		Responsabile responsabile = null;
-		try {
-			// Form login
-			UserDetails user = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-			responsabile = responsabileService.findByEmail(user.getUsername());
-		}catch(Exception e)
-		{
-			// oAuth login
-			DefaultOidcUser user = (DefaultOidcUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-			responsabile = responsabileService.findByEmail(user.getEmail());
-			
-			if(responsabile==null)
-				try {
-					request.logout();
-					getMetodiDiLogin();
-					model.addAttribute("urls", oauth2AuthenticationUrls);
-					return "login";
-				} catch (ServletException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+	protected String showHomePage(HttpSession session, HttpServletRequest request,Model model) {
+		if(session.getAttribute("responsabile") == null) {
+			Responsabile responsabile = null;
+			try {
+				// Form login
+				UserDetails user = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+				responsabile = responsabileService.findByEmail(user.getUsername());
+			}catch(Exception e)
+			{
+				// oAuth login
+				DefaultOidcUser user = (DefaultOidcUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+				responsabile = responsabileService.findByEmail(user.getEmail());
+				session.setAttribute("img",user.getPicture());
+				
+				// Se non è registrato nel database
+				if(responsabile==null)
+					try {
+						request.logout();
+						getMetodiDiLogin();
+						model.addAttribute("urls", oauth2AuthenticationUrls);
+						return "login";
+					} catch (ServletException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+			}
+			session.setAttribute("email",responsabile.getEmail());
+			session.setAttribute("responsabile",responsabile);
 		}
-
-		model.addAttribute("responsabile", responsabile);
 		
 		return "index";
 	}
 
-	@RequestMapping("/utente")
-	public String utente() {
-		return "utente";
-	}
 
 	@GetMapping("/login")
 	public String showLogin(Model model) {
