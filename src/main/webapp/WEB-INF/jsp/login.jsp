@@ -82,12 +82,16 @@
 				<input type="submit" value="Entra" class="enter_button" />
 			</div>
 		</form>	
-		<span>
-			Oppure effettua il login con 
+		<br>
+			<span>Oppure effettua il login con </span>
+			<br>
+			<br>
 			<c:forEach var="url" items="${urls}">
-				<a href="${url.value}">${url.key}</a>
+			<div id="login-google">
+				<a href="${url.value}"><img src="/images/search.png" /></a>
+			</div>
 			</c:forEach>
-		</span>
+
 		</div>
 	</div>
 	

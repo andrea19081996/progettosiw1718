@@ -30,4 +30,9 @@ public class CentroService {
 		else
 			return null;
 	}
+
+	public void save(Centro centro) {
+		this.repository.save(centro);
+		
+	}
 }

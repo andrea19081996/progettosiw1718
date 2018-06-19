@@ -1,5 +1,7 @@
 package apicella.bersani;
 
+import java.util.LinkedList;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +10,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
+import apicella.bersani.model.Attivita;
+import apicella.bersani.model.Centro;
 import apicella.bersani.model.Responsabile;
 import apicella.bersani.service.AllievoService;
+import apicella.bersani.service.CentroService;
 import apicella.bersani.service.ResponsabileService;
 
 @SpringBootApplication
@@ -20,6 +25,9 @@ public class ProgettoSiw1718Application extends SpringBootServletInitializer {
 	
 	@Autowired
 	private AllievoService allievoService;
+	
+	@Autowired
+	private CentroService centroService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProgettoSiw1718Application.class, args);
@@ -46,14 +54,15 @@ public class ProgettoSiw1718Application extends SpringBootServletInitializer {
 //		centro.setTelefono("123456789");
 //		r.setCentro(centro);
 //		r.setRuolo("responsabile");
+//		centroService.save(centro);
 //		responsabileService.save(r);
-		
-		/*Responsabile d = new Responsabile();
-		d.setEmail("direttore@direttore.it");
-		d.setPassword("prova");
-		d.setRuolo("direttore");
-		d.setCentro(centro);
-		responsabileService.save(d);*/
+//		
+//		Responsabile d = new Responsabile();
+//		d.setEmail("direttore@direttore.it");
+//		d.setPassword("prova");
+//		d.setRuolo("direttore");
+//		d.setCentro(centro);
+//		responsabileService.save(d);
 
 	}
 }
