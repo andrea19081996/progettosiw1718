@@ -93,10 +93,12 @@
 			<div id="special">
 				<div class='login'>
 					<h2>Login</h2>
-					<input name='email' placeholder='E-Mail Address' type='text'>
+					<form name="f" action="/login" method="post">
+					<input name='username' placeholder='E-Mail' type='text'>
 					<input id='pw' name='password' placeholder='Password' type='password'>
 
-					<input class='animated' type='submit' value='Register'>
+					<input class='animated' type='submit' value='Entra'>
+					</form>
 				</div>
 			</div>
 
