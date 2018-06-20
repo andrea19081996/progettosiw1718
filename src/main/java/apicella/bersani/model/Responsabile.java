@@ -26,7 +26,7 @@ public class Responsabile {
 	@Column()
 	private String password;
 	
-	@OneToOne(fetch=FetchType.EAGER, cascade= {CascadeType.PERSIST})
+	@OneToOne(fetch=FetchType.EAGER)
 	private Centro centro;
 	
 	@Column(nullable=false)

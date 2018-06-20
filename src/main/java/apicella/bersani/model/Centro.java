@@ -38,7 +38,7 @@ public class Centro {
 	@Column(nullable=false)
 	private Integer numMax;
 	
-	@OneToMany (cascade= {CascadeType.ALL}, mappedBy="centro")
+	@OneToMany (mappedBy="centro")
 	private List<Attivita> attivita;
 	
 	
