@@ -89,26 +89,35 @@
 				<span class="simple_text">${messaggio} 
 				<br><br>
 				<c:if test="${allievoCercato !=null}">
-					<table class="blueTable">
-						<thead>
-							<tr>
-								<td>Nome</td>
-								<td>Cognome</td>
-								<td>Email</td>
-								<td>Telefono</td>
-								<td>Data di nascita</td>
-								<td>Luogo di nascita</td>
-							</tr>
-						</thead>
-						<tr>
-							<td>${allievoCercato.nome }</td>
-							<td>${allievoCercato.cognome }</td>
-							<td>${allievoCercato.email }</td>
-							<td>${allievoCercato.telefono }</td>
-							<td>${allievoCercato.dataNascita }</td>
-							<td>${allievoCercato.luogoNascita }</td>
-						</tr> 
-					</table>
+					<div class="table100 ver3 m-b-110">
+						<div class="table100-head">
+							<table>
+								<thead>
+									<tr class="row100 head">
+										<th class="cell100 column1">Nome</th>
+										<th class="cell100 column2">Cognome</th>
+										<th class="cell100 column3">Email</th>
+										<th class="cell100 column4">Telefono</th>
+										<th class="cell100 column5">Data e luogo di nascita</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+						
+						<div class="table100-body js-pscroll">
+							<table>
+								<tbody>
+									<tr class="row100 body">
+										<td class="cell100 column1">${allievoCercato.nome }</td>
+										<td class="cell100 column2">${allievoCercato.cognome }</td>
+										<td class="cell100 column3">${allievoCercato.email }</td>
+										<td class="cell100 column4">${allievoCercato.telefono }</td>
+										<td class="cell100 column5">${allievoCercato.dataNascita } - ${allievoCercato.luogoNascita }</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
 				</c:if>
 				</span>
 			</div>

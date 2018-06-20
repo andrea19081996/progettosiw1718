@@ -66,26 +66,35 @@
 			<div class="title">
 				<h2>Registrazione completata</h2>
 				<span class="byline">Complimenti la registrazione è stata effettuata con successo.</span>
-				<table class="blueTable">
-						<thead>
-							<tr>
-								<td>Nome</td>
-								<td>Cognome</td>
-								<td>Email</td>
-								<td>Telefono</td>
-								<td>Data di nascita</td>
-								<td>Luogo di nascita</td>
-							</tr>
-						</thead>
-						<tr>
-							<td>${allievo.nome }</td>
-							<td>${allievo.cognome }</td>
-							<td>${allievo.email }</td>
-							<td>${allievo.telefono }</td>
-							<td>${dataNascita }</td>
-							<td>${allievo.luogoNascita }</td>
-						</tr> 
-					</table>
+				<div class="table100 ver3 m-b-110">
+					<div class="table100-head">
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">Nome</th>
+									<th class="cell100 column2">Cognome</th>
+									<th class="cell100 column3">Email</th>
+									<th class="cell100 column4">Telefono</th>
+									<th class="cell100 column5">Data e luogo di nascita</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+					
+					<div class="table100-body js-pscroll">
+						<table>
+							<tbody>
+								<tr class="row100 body">
+									<td class="cell100 column1">${allievo.nome }</td>
+									<td class="cell100 column2">${allievo.cognome }</td>
+									<td class="cell100 column3">${allievo.email }</td>
+									<td class="cell100 column4">${allievo.telefono }</td>
+									<td class="cell100 column5">${dataNascita } - ${allievo.luogoNascita }</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>	
 			</div>
 		</div>
 	</div>

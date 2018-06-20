@@ -76,22 +76,33 @@
 					<span class="error">Attenzione! Non ci sono attività disponibili per oggi!</span>
 				</c:if>
 				<br><br>
-				<table class="blueTable">
-					<thead>
-						<tr>
-							<td>Nome</td>
-							<td>Data</td>
-							<td>Orario</td>
-						</tr>
-					</thead>
-					<c:forEach var="a" items="${listaAttivita}">
-						<tr>
-							<td><a href="iscrivi/${a.id}">${a.nome}</a></td>
-							<td>${a.data }</td>
-							<td>${a.orario }</td>
-						</tr>
-					</c:forEach>
-				</table>
+				<div class="table100 ver3 m-b-110">
+					<div class="table100-head">
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">Nome</th>
+									<th class="cell100 column2">Data</th>
+									<th class="cell100 column3">Orario</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+					
+					<div class="table100-body js-pscroll">
+						<table>
+							<tbody>
+								<c:forEach var="a" items="${listaAttivita}" >
+									<tr class="row100 body">
+										<td class="cell100 column1"><a href="iscrivi/${a.id}">${a.nome}</a></td>
+										<td class="cell100 column2">${a.data }</td>
+										<td class="cell100 column3">${a.orario }</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
+				</div>
 			</span>
 		</div>
 	</div>
