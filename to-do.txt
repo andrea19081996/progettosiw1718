@@ -1,4 +1,1 @@
 DA FARE:
-	- Tabella con 6 colonne (per allievi)
-	- Form utente
-	- Sistemare foto
