@@ -68,23 +68,24 @@
 				<span class="byline">In questa pagina verranno descritti i casi d'uso e un collegamento per il login.</span>
 			</div>
 		
-			<div id="information-users" >
+			<div id="information-user" >
 				<div class="first-line">
 					Hai effettuato il login come <span class="underline">${responsabile.email }</span>
 				</div>
 				<br>
 				<img src="${img}" />
 				<br><br>
-				Informazioni sul tuo centro:<br>
+				<span class="information">Informazioni sul tuo centro:</span>
+				<br><br>
 				<ul>
-					<li>Nome: ${responsabile.centro.nome}</li>
-					<li>Indirizzo: ${responsabile.centro.indirizzo}</li>
-					<li>Telefono: ${responsabile.centro.telefono }</li>
-					<li>Capienza massima: ${responsabile.centro.numMax}</li>
+					<li>Nome:<span class="list-information">${responsabile.centro.nome}</span></li>
+					<li>Indirizzo:<span class="list-information">${responsabile.centro.indirizzo}</span></li>
+					<li>Telefono:<span class="list-information">${responsabile.centro.telefono}</span></li>
+					<li>Capienza massima:<span class="list-information">${responsabile.centro.numMax}</span></li>
 				</ul>
 			</div>
-			<div class="boxB">
-				<h3>Ecco cosa puoi fare!</h3>
+			<div>
+				<h3 class="sub-information">Ecco cosa puoi fare!</h3>
 				<div class="list">
 					<ul>
 						<li><a href="/registrazioneAllievo">Nuovo allievo</a></li>

@@ -37,15 +37,6 @@ form.logout {
 	display:inline-block;
 	float: right;
 }
-
-#information-user .underline {
-		text-decoration: underline;
-		font-size:10px;
-	}
-	
-#information-user .first-line {
-	margin-bottom: 5px;
-}
 	
 #box {
 	border: 1px solid rgba(0,0,0,.5);
@@ -139,6 +130,55 @@ table.blueTable tfoot .links a{
   border-radius: 5px;
 }
 
+#information-user {
+	margin-bottom: 65px;
+}
+
+#information-user .information {
+	font-weight:bold;
+	font-size:30px;
+	color: black;
+	font-style:italic;
+	margin-bottom:10px;
+}
+
+#information-user .underline {
+	text-decoration: underline;
+}
+	
+#information-user .first-line {
+	margin-bottom: 5px;
+	font-size: 30px;
+    color: black;
+    font-weight: bold;
+}
+
+#information-user ul li{
+	color: red;
+	margin-bottom:5px;
+
+}
+
+#information-user ul li .list-information {
+	font-weight:bold;
+}
+
+div .list ul li a{
+	color: #2651a8;
+	font-size:20px;
+	margin-bottom:8px;
+}
+
+div .list ul li {
+	margin-bottom:8px;
+}
+
+div h3.sub-information {
+	color:black;
+	font-weight:bold;
+	font-size:20px;
+	margin-bottom:10px;
+}
 
 .erroreLogin{
 	font-size:20px;
