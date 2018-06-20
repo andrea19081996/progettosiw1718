@@ -50,6 +50,7 @@ public class MainController {
 				// Form login
 				UserDetails user = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 				responsabile = responsabileService.findByEmail(user.getUsername());
+				session.setAttribute("img","/images/user.png");
 			}catch(Exception e)
 			{
 				// oAuth login
@@ -65,6 +66,7 @@ public class MainController {
 						model.addAttribute("urls", oauth2AuthenticationUrls);
 						return "login";
 					} catch (ServletException e1) {
+						
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
@@ -81,7 +83,6 @@ public class MainController {
 	public String showLogin(Model model) {
 		getMetodiDiLogin();
 		model.addAttribute("urls", oauth2AuthenticationUrls);
-
 		return "login";
 	}
 	

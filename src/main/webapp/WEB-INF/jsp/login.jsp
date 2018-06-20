@@ -123,6 +123,11 @@
 					<a href="${url.value}"><img src="/images/search.png" /></a>
 				</div>
 			</c:forEach>
+			<br>
+			<c:if test="${param.error == 'true'}">
+			    <span class="erroreLogin">Utente non esistente.</span>
+			</c:if>
+			
 
 		</div>
 	</div>

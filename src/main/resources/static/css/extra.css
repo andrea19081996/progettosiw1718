@@ -38,9 +38,14 @@ form.logout {
 	float: right;
 }
 
-.underline {
+#information-user .underline {
 		text-decoration: underline;
+		font-size:10px;
 	}
+	
+#information-user .first-line {
+	margin-bottom: 5px;
+}
 	
 #box {
 	border: 1px solid rgba(0,0,0,.5);
@@ -132,4 +137,12 @@ table.blueTable tfoot .links a{
   color: #FFFFFF;
   padding: 2px 8px;
   border-radius: 5px;
+}
+
+
+.erroreLogin{
+	font-size:20px;
+	color:red;
+	font-weight:bold;
+	border-bottom:2px solid black;
 }
