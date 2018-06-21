@@ -1,7 +1,5 @@
 package apicella.bersani.controller.validator;
 
-import java.util.Date;
-
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
@@ -34,20 +32,6 @@ public class AllievoValidator implements Validator{
         if(a.getTelefono().length()!=10 && !errors.hasFieldErrors("telefono")) {
         	errors.rejectValue("telefono", "errato",new Object[]{"'telefono'"}, "Il telefono inserito non è corretto");
         }
-//        if( (a.getDataNascita().getClass()!=Date.class || controllaData(a.getDataNascita())) && !errors.hasFieldErrors("dataNascita") ) {
-//        	errors.rejectValue("dataNascita", "errato", "La data di nascita inserita non è corretta");
-//        }
 		
 	}
-	
-	public boolean controllaData(Date d) {
-		if(d.getMonth()>12 || d.getMonth()<1)
-			return true;
-		if(d.getDay()<1 || d.getDay()>31)
-			return true;
-		return false;
-	}
-	
-	
-
 }

@@ -6,8 +6,6 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,7 +29,7 @@ public class IscrizioneAttivitaController {
 
 	@Autowired
 	AttivitaService attivitaService;
-	
+
 	@Autowired 
 	ResponsabileService responsabileService;
 
@@ -56,14 +54,11 @@ public class IscrizioneAttivitaController {
 		// Se trovo l'allievo seleziono tutte le attività del centro.
 		// Prendo il resposanbile dalla sessione
 		Responsabile r = responsabileService.findByEmail((String) session.getAttribute("email"));
-
 		Centro c = r.getCentro();
 		// Prendo tutte le attività odierne e controllo la capienza del centro.
-		
-//		List<Attivita> attivita = attivitaService.getAttivitaOdierne(c);
-		
+
 		List<Attivita> attivita = c.getAttivita();
-		
+
 		int postiOccupati = 0;
 		for(Attivita att : attivita)
 			postiOccupati = postiOccupati + att.getAllievi().size();
@@ -93,21 +88,21 @@ public class IscrizioneAttivitaController {
 			model.addAttribute("messaggioErrore", "Non è possibile eseguire l'iscrizione a questa attività.");
 			return "errore";
 		}
-		
+
 		if(giaIscritto(attivita, allievo)) {
 			model.addAttribute("messaggioErrore", "L'allievo e' gia' registrato a questa attività.");
 			return "errore";
 		}
-			
+
 		// Iscrivo all'attivita
 		List<Attivita> listaAttivita = new ArrayList<>(1);
 		listaAttivita.add(attivita);
 		allievo.setAttivita(listaAttivita);
-		
+
 		List<Allievo> listaAllievi = new ArrayList<>(1);
 		listaAllievi.add(allievo);
 		attivita.setAllievi(listaAllievi);
-		
+
 		// Salvo nel database
 		allievoService.updateAttivita(allievo);
 

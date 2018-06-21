@@ -12,15 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import apicella.bersani.model.Attivita;
 import apicella.bersani.model.Centro;
-import apicella.bersani.service.AttivitaService;
 import apicella.bersani.service.CentroService;
 
 @Controller
 public class CentroController {
 
-	@Autowired
-	private AttivitaService attivitaService;
-	
 	@Autowired
 	private CentroService centroService;
 	
@@ -28,7 +24,6 @@ public class CentroController {
 	public String cerca(HttpSession session, Model model, @PathVariable Long id){
 		
 		Centro centro = this.centroService.findById(id);
-		
 		List<Attivita> attività = centro.getAttivita();
 		model.addAttribute("attivita", attività);
 		

@@ -1,19 +1,16 @@
 package apicella.bersani.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
-@NamedQuery(name = "findAllResponsabile", query = "FROM Responsabile r")
 public class Responsabile {
 
 	@Id
@@ -23,17 +20,13 @@ public class Responsabile {
 	@Column(nullable=false,unique=true)
 	private String email;
 	
-	@Column()
 	private String password;
-	
-	@OneToOne(fetch=FetchType.EAGER)
-	private Centro centro;
 	
 	@Column(nullable=false)
 	private String ruolo;
 	
-	
-	
+	@OneToOne(fetch=FetchType.EAGER)
+	private Centro centro;
 	
 	public String getRuolo() {
 		return ruolo;
@@ -102,12 +95,5 @@ public class Responsabile {
 			return false;
 		return true;
 	}
-	
-	public boolean checkLogin(String password)
-	{
-		return this.getPassword().equals(password);
-	}
-	
-	
 	
 }

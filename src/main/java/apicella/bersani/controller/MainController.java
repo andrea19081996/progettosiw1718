@@ -31,7 +31,7 @@ public class MainController {
 
 	@Autowired 
 	ResponsabileService responsabileService;
-	
+
 	@Autowired
 	CentroService centroService;
 
@@ -57,7 +57,7 @@ public class MainController {
 				DefaultOidcUser user = (DefaultOidcUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 				responsabile = responsabileService.findByEmail(user.getEmail());
 				session.setAttribute("img",user.getPicture());
-				
+
 				// Se non è registrato nel database
 				if(responsabile==null)
 					try {
@@ -66,7 +66,7 @@ public class MainController {
 						model.addAttribute("urls", oauth2AuthenticationUrls);
 						return "login";
 					} catch (ServletException e1) {
-						
+
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
@@ -74,7 +74,7 @@ public class MainController {
 			session.setAttribute("email",responsabile.getEmail());
 			session.setAttribute("responsabile",responsabile);
 		}
-		
+
 		return "index";
 	}
 
@@ -85,7 +85,8 @@ public class MainController {
 		model.addAttribute("urls", oauth2AuthenticationUrls);
 		return "login";
 	}
-	
+
+	//metodo per mostrare nella index i metodi di login con oauth
 	private void getMetodiDiLogin() {
 		Iterable<ClientRegistration> clientRegistrations = null;
 		ResolvableType type = ResolvableType.forInstance(clientRegistrationRepository).as(Iterable.class);

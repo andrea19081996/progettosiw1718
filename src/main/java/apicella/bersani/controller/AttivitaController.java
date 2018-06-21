@@ -7,9 +7,6 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,25 +23,25 @@ import apicella.bersani.service.ResponsabileService;
 
 @Controller
 public class AttivitaController {
-	
+
 	@Autowired
 	AttivitaService attivitaService;
-	
+
 	@Autowired
 	AttivitaValidator validator;
-	
+
 	@Autowired
 	ResponsabileService responsabileService;
-	
 
+	
 	@RequestMapping("/nuovaAttivita")
 	public String mostraPaginaAggiuntaAttivita(HttpSession session, Model model) {
 		Attivita attivita = new Attivita();
-		
+
 		model.addAttribute("attivita", attivita);
 		return "nuovaAttivita";
 	}
-	
+
 	@RequestMapping("aggiungiAttivita")
 	public String aggiungiNuovaAttivita(@ModelAttribute("attivita") Attivita attivita, BindingResult bindingResult, HttpSession session, Model model)
 	{
@@ -53,13 +50,11 @@ public class AttivitaController {
 			model.addAttribute("errore", "Questa attiivita' e' gia' presente nell'elenco.");
 			return "nuovaAttivita";
 		}
-		
-		System.out.println(bindingResult.getAllErrors());
 		if(bindingResult.hasErrors())
 			return "nuovaAttivita";
-		
+
 		Responsabile responsabile = responsabileService.findByEmail((String) session.getAttribute("email"));
-		
+
 		attivita.setAllievi(new ArrayList<>());
 		attivita.setCentro(responsabile.getCentro());
 		attivitaService.save(attivita);
@@ -72,20 +67,18 @@ public class AttivitaController {
 		model.addAttribute("orario", orario);
 		return "confermaAggiuntaAttivita";
 	}
-	
-	
+
+
 	//UC5
-	
 	@RequestMapping("/centro/attivita/{id}")
 	public String sceltaAttivita(Model model, @PathVariable("id") Long id) {
-		
+
 		Attivita attivita= this.attivitaService.findById(id);
 		List<Allievo> allievi = attivita.getAllievi();
-		
 		model.addAttribute("allievi", allievi);
 		model.addAttribute("totale", allievi.size());
-		
+
 		return "show-all-allevi-in-attivita";
-		
+
 	}
 }

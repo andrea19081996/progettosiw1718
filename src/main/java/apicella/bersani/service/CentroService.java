@@ -8,7 +8,6 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import apicella.bersani.model.Attivita;
 import apicella.bersani.model.Centro;
 import apicella.bersani.repository.CentroRepository;
 
