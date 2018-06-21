@@ -70,14 +70,7 @@
 			
 		
 			<form action="controllaAllievo" method="get">
-					
-					<!-- mettere email e pass allineate -->
-					
 					Email: <input type="text" name="email" />
-					
-					<!-- Modificare css come pulsante blu -->
-					
-					<!--  per far venire come pulsante in alto agg js per mandare comando di login -->
 					<input type="submit" value="Cerca" class="enter_button"/>
 				</form>	
 			

@@ -65,7 +65,7 @@
 		<div id="three-column" class="container">
 			<div class="title">
 				<h2>Iscrizione attività</h2>
-				<span class="byline">Iscrivi un allievo ad un'attivita' del tuo centro da questa pagina.</span>
+				<span class="byline">Seleziona un allievo inserendo la usa email.</span>
 			</div>
 			<span class="simple_text">
 				<a href="registrazioneAllievo">Registra un nuovo allievo</a> oppure inserisci l'email di un allievo già registrato. 

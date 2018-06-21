@@ -70,7 +70,7 @@
 		
 			<div id="information-user" >
 				<div class="first-line">
-					Hai effettuato il login come <span class="underline">${responsabile.email }</span>
+					Hai effettuato il login come <span class="underline">${responsabile.email }</span> - ${responsabile.ruolo }
 				</div>
 				<br>
 				<img src="${img}" />

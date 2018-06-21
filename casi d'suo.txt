@@ -3,34 +3,40 @@ CASI D'USO - PROGETTO SIW 2017/2018 BERSANI APICELLA
 	1. L'allievo comunica al responsabile i suoi dati anagrafici.
 	2. Il responsabile inserisce nel sistema i dati
 	3. Il sistema registra i dati dell'allievo.
+	
+	Estensioni:
+		3a. Se l'email utilizzata e' gia' presente nel database il sistema avverte il responsabile.
 
 2) UC2: Ricerca di uno studente - Attore: Responsabile
 	1. Il responsabile inserisce l'email di uno studente
-	2. Il sistema comunica al resposanbile se l'allievo è già registrato al sistema
+	2. Il sistema comunica al resposanbile se l'allievo è già registrato al sistema e mostra i suoi dati.
 	
 3) UC3: Iscrizione ad un'attività - Attore: Responsabile
-	1. Il sistema mostra le attività disponibili.
-	2. L'allievo comunica al responsabile a quale attività vuole iscriversi
-	3. Il resposnabile seleziona l'attivit desiderata
-	4. Il sistema mostra una lista degli allievi.
-	5. Il responsabile cerca e seleziona l'allievo che vuole iscriversi all'attivit�
-	6. Il sistema registra l'iscrizione.
+	1. L'allievo vuole iscriversi ad un attivita' di quel centro.
+	2. Il responsabile chiede l'email all'allievo e la inserisce nel sistema.
+	3. Il sistema seleziona l'allievo corrispondente e mostra una lista di attivita' del centro.
+	4. Il responsabile seleziona l'attività a cui l'allievo vuole iscriversi.
+	5. Il sistema registra l'iscrizione.
 
 	Estensioni:
-		6a. Se è stata raggiunta la capienza massima il sistema avverte il resposabile.
+		5a. Se è stata raggiunta la capienza massima il sistema avverte il resposabile.
+		5b. Se l'allievo e' gia' iscritto a quell'attività il sistema avverte il resposnabile.
 
 4) UC4: Inserimento di una nuova attività - Attore: Responsabile
 	1. Il responsabile inserisce i dati dell'attività.
 	2. Il sistema registra l'attività per il centro corrispondente.
 
-5) UC5: Riepilogo attività - Attore: Direttore
+5a) UC5: Riepilogo attività - Attore: Direttore
 	1. Il direttore dell'azienda seleziona un centro.
 	2. Il sistema mostra le attivita del centro selezionato.
 	3. Il direttore seleziona un'attivita' tra quelle mostrate
 	4. Il sistema mostra un resoconto dell'attività (informazioni) e l'elenco degli allievi che hanno partecipato a quell'attività.
 	
-5) UC5: Riepilogo attività - Attore: Responsabile
+5b) UC5: Riepilogo attività - Attore: Responsabile
 	3. Il responsabile seleziona un'attivita' tra quelle del suo centro
 	4. Il sistema mostra un resoconto dell'attività (informazioni) e l'elenco degli allievi che hanno partecipato a quell'attività.
 	
 	
+NOTE: 
+	- Anche il direttore ha un centro associato.
+	- Per effettuare il login con oAuth deve essere autorizzato nel database.
