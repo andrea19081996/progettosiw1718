@@ -4,7 +4,7 @@ Progetto SIW 2017/2018 [Davide Bersani](https://github.com/bersani96) e [Andrea 
 Per commit vecchi: https://github.com/bersani96/progetto-siw
 
 ## Casi d'uso
-Per i casi d'uso fare riferimento al file "casi d'uso.txt"
+Per i casi d'uso fare riferimento al file "casi d'uso.txt". Per il diagramma delle classi fare riferimento all'immagine "diagramma delle classi.png"
 
 ## Descrizione
 Progetto avanzato per Sistemi informativi sul web 2017/2018. 
